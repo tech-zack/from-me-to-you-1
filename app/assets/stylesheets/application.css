@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+ /* 画像サイズ */
+ img {
+  object-fit: cover;
+} 
+/* フォント */
+.text-center {
+  font-family: "Hannari";
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.navbar-brand {
+  font-family: "Hannari";
+}
+.nav-link{
+  font-family: "Hannari";
+}
+.carousel-caption {
+  font-family: "Hannari";
+}
