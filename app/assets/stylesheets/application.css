@@ -602,3 +602,22 @@ textarea,
 .carousel-caption {
   font-family: "Hannari";
 }
+
+/* 背景画像 */
+.signup-wrapper {
+  background-image: url('/FBPAKU3311.jpg');
+  background-size: cover;
+  background-position: center center;
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+.login-wrapper {
+  background-image: url('/GAPAKU3298.jpg');
+  background-size: cover;
+  background-position: center center;
+  padding-top: 100px;
+  padding-bottom: 250px;
+}
+
+
