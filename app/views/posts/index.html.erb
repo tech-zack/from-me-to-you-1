@@ -34,7 +34,7 @@
         <div class="card-body">
           <h5 class="text-center"><%=post.title%></h5>
           <p class="text-center"><%=post.text%></p>
-          <a href=" " class="btn btn-outline-success">続きを読む</a>
+          <%=link_to '続きを読む', post_path(post.id), class: "btn btn-outline-success"%>
         </div>
       </div>
     </div> 

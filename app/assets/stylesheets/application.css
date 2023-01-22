@@ -658,6 +658,15 @@ li {
   padding: 10px;
 }
 
+/* 詳細ページ */
+.card-img {
+  height: 450px;
+  object-fit: contain;
+  border: 1px solid #808080;
+  background-color:#272727;
+  padding: 10px;
+}
+
 /* ページネーション */
 .page {
   padding-top: 15px;
