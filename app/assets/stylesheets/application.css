@@ -657,3 +657,16 @@ li {
   background-color:#272727;
   padding: 10px;
 }
+
+/* ページネーション */
+.page {
+  padding-top: 15px;
+}
+
+.pagination>li>a { 
+  border: none; 
+  color: #272727;
+}
+
+
+
