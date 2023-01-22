@@ -644,7 +644,16 @@ textarea,
   background-blend-mode:color;
 }
 
+/* 注意書き */
 li {
   list-style-type: none;
 }
 
+/* 投稿カード装飾 */
+.card-img-top {
+  height: 200px;
+  object-fit: contain;
+  border: 1px solid #808080;
+  background-color:#272727;
+  padding: 10px;
+}
