@@ -2,7 +2,15 @@
   <%= image_tag @post.image, class: "card-img"%>
   <h2 class="text-center"><%=@post.title%></h5>
   <p class="text-center"><%=@post.text%></p>
-
+  <% if user_signed_in? %>
+   <% if current_user.id == @post.user_id %>
+    <div class="text-center">
+      <%= link_to "編集", edit_post_path(@post.id),class:"btn btn-outline-success btn-lg" %>
+      <%= link_to "削除", post_path(@post.id), data: { turbo_method: :delete } ,class:"btn btn-outline-success btn-lg" %>
+    </div>
+   <% end %>
+  <% end %> 
   <hr>
 </div>
 
+ 
