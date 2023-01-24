@@ -28,10 +28,11 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">検索</button>
-      </form>
-    </div>
+      <%= search_form_for @q, url: search_posts_path do |f| %>
+        <div class="d-flex">
+          <%= f.search_field :title_cont, required: true,class: "form-control me-2"%>
+          <%= f.submit '検索', class: "btn btn-outline-success" %>
+        </div>
+      <% end %>
   </div>
 </header>

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3">
+    <% @results.each do |result| %>
+     <div class="col"> 
+      <div class="card"> 
+        <%= image_tag result.image, class: "card-img-top"%>
+        <div class="card-body">
+          <h5 class="text-center"><%=result.title%></h5>
+          <p class="text-center"><%=result.text%></p>
+          <%=link_to '続きを読む', post_path(result.id), class: "btn btn-outline-success"%>
+        </div>
+      </div>
+    </div> 
+  <% end %>
+ </div>
+</div>
