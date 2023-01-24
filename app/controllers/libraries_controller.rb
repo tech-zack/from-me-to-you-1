@@ -1,5 +1,5 @@
 class LibrariesController < ApplicationController
-  before_action :set_q, only: [:index, :search]
+  before_action :set_q, only: [:index]
 
   def index
   end
