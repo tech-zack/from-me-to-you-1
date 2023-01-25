@@ -672,10 +672,20 @@ li {
   padding-top: 15px;
 }
 
-.pagination>li>a { 
-  border: none; 
+.pagination a { 
+  border: none;
   color: #272727;
 }
+
+.pagination a:hover {
+  color: #272727;
+  border: 1px solid #808080;
+ }
+
+ 
+
+
+
 
 
 
