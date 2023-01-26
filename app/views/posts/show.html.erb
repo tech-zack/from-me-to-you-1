@@ -1,22 +1,25 @@
 <div class="post-container">
   <%= image_tag @post.image, class: "card-img"%>
-  <h2 class="text-center"><%=@post.title%></h5>
-  <p class="text-center"><%=@post.text%></p>
-  <% if user_signed_in? %>
-   <% if current_user.id == @post.user_id %>
-    <div class="text-center">
-      <%= link_to "編集", edit_post_path(@post.id),class:"btn btn-outline-success btn-lg" %>
-      <%= link_to "削除", post_path(@post.id), data: { turbo_method: :delete } ,class:"btn btn-outline-success btn-lg" %>
-    </div>
-   <% end %>
-  <% end %> 
-
-
+  <div class="card mx-auto" style="max-width: 650px">
+    <h2 class="text-center"><%=@post.title%></h2>
+    <p class="text-center"><%=@post.text%></p>
+    <% if user_signed_in? %>
+    <% if current_user.id == @post.user_id %>
+      <div class="text-center">
+        <%= link_to "編集", edit_post_path(@post.id),class:"btn btn-outline-success btn-lg" %>
+        <%= link_to "削除", post_path(@post.id), data: { turbo_method: :delete } ,class:"btn btn-outline-success btn-lg" %>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
 
 <% if user_signed_in? %>
+<% if current_user.id == @post.user_id %>
+
 <hr>
+
   <h5 class="text-center">メッセージを届ける</h5>
-    <div class="card mx-auto" style="width: 400px;">
+   <div class="card mx-auto" style="max-width: 650px">
       <div class="card-body">
         <%= form_with model:[@post,@comment] do |f| %>
         <div class="text-center">
@@ -28,12 +31,13 @@
         <% end %>
       </div>
     </div>
+<% end %> 
 <% end %>
 
 <hr>
 
 <h5 class="text-center">メッセージ</h5>
-<div class="card mx-auto" style="width: 400px;">
+<div class="card mx-auto" style="max-width: 650px">
   <div class="card-body">
     <% @post.comments.each do |comment| %>
       <div class="text-center">
@@ -49,6 +53,6 @@
       </div>
     <% end %>
   </div>
+</div> 
 </div>
-
-</div>
+<%= render "layouts/footer" %>
