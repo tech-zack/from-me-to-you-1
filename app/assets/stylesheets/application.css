@@ -644,6 +644,17 @@ textarea,
   background-blend-mode:color;
 }
 
+.libraries-container {
+  background-image: url('/paku_akjfalsdjklasadfa.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-color:rgba(255,255,255,0.6);
+  background-blend-mode:color;
+  background-attachment: fixed; 
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
 /* 注意書き */
 li {
   list-style-type: none;
