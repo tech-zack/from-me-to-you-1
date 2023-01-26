@@ -1,6 +1,6 @@
 <div class="post-container">
   <%= image_tag @post.image, class: "card-img"%>
-  <div class="card mx-auto" style="max-width: 650px">
+  <div class="post-card-body">
     <h2 class="text-center"><%=@post.title%></h2>
     <p class="text-center"><%=@post.text%></p>
     <% if user_signed_in? %>
@@ -14,9 +14,6 @@
   </div>
 
 <% if user_signed_in? %>
-
-<hr>
-
   <h5 class="text-center">メッセージを届ける</h5>
    <div class="card mx-auto" style="max-width: 650px">
       <div class="card-body">
