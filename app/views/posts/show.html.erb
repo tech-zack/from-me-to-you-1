@@ -10,5 +10,45 @@
     </div>
    <% end %>
   <% end %> 
-  <hr>
+
+
+
+<% if user_signed_in? %>
+<hr>
+  <h5 class="text-center">メッセージを届ける</h5>
+    <div class="card mx-auto" style="width: 400px;">
+      <div class="card-body">
+        <%= form_with model:[@post,@comment] do |f| %>
+        <div class="text-center">
+          <%= f.text_area :comment,required: true, class: "form-control" %>
+        </div>
+        <div class="text-center">
+          <%= f.submit "送信", class:"btn btn-outline-success" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+<% end %>
+
+<hr>
+
+<h5 class="text-center">メッセージ</h5>
+<div class="card mx-auto" style="width: 400px;">
+  <div class="card-body">
+    <% @post.comments.each do |comment| %>
+      <div class="text-center">
+        <%= comment.comment %>
+      </div>
+      <div class="text-center">
+        <%= comment.user.nickname%>
+       </div>
+      <div class="text-center">
+        <% if comment.user == current_user %>
+          <%= link_to "削除", post_comment_path(comment.post,comment), data: { turbo_method: :delete }, class:"btn btn-outline-success" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 </div>
