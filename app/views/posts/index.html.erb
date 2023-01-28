@@ -25,7 +25,7 @@
       <%= search_form_for @q, url: search_posts_path do |f| %>
         <div class="d-flex">
           <%= f.search_field :title_cont, required: true,class: "form-control me-2"%>
-          <%= f.submit '検索', class: "btn btn-outline-success" %>
+            <%= f.submit '検索', class: "btn btn-outline-success" %>
         </div>
       <% end %>
     </div>
@@ -46,7 +46,9 @@
         <div class="card-body">
           <h5 class="text-center"><%=post.title%></h5>
           <p class="text-center"><%=post.text%></p>
-          <%=link_to '続きを読む', post_path(post.id), class: "btn btn-outline-success"%>
+          <div class="text-center">
+            <%=link_to '続きを読む', post_path(post.id), class: "btn btn-outline-success"%>
+          </div>
         </div>
       </div>
     </div> 

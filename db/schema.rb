@@ -54,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_090759) do
   end
 
   create_table "posts", charset: "utf8", force: :cascade do |t|
+    t.integer "category_id", null: false
     t.string "title", null: false
     t.text "text", null: false
     t.bigint "user_id"

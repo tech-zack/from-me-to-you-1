@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'acounts/show'
   devise_for :users
   get 'posts/index'
+  get'/post/category', to: "posts#category"
   root to: 'libraries#index'
   resources :posts do
     collection do

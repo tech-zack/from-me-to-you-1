@@ -77,3 +77,5 @@ gem 'image_processing', '~>1.2'
 gem 'kaminari'
 gem "ransack"
 gem 'jquery-rails'
+gem 'ancestry'
+gem 'active_hash'

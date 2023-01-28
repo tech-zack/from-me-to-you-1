@@ -50,6 +50,9 @@ class PostsController < ApplicationController
     @results = @q.result
   end
 
+  def category
+  end
+
   private
 
   def set_q
@@ -57,6 +60,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :text, :image)
+    params.require(:post).permit(:title, :text, :image, :category_id)
   end
 end
