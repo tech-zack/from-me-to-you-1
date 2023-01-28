@@ -17,13 +17,18 @@
       </div>
     </div>
     <div class="text-center">
+      <label for="exampleFormControlInput1" class="form-label">カテゴリー</label>
+      <div class="field">
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"form-control"}) %>
+      </div>
+    <div class="text-center">
       <label for="exampleFormControlInput1" class="form-label">文章</label>
       <div class="field">
         <%= f.text_area :text, class:"form-control", id:"post-text", placeholder:"タイトル内容（必須 1,000文字まで)" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
     <div class="d-grid gap-2 col-6 mx-auto">
-      <%= f.submit "届ける" ,class:"btn btn-outline-success" %>
+      <%= f.submit "変更する" ,class:"btn btn-outline-success" %>
       <%= link_to '戻る', root_path, class:"btn btn-outline-success" %>
     </div>
   </div>

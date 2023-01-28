@@ -8,7 +8,7 @@
     <% if current_user.id == @post.user_id %>
       <div class="text-center">
         <%= link_to "編集", edit_post_path(@post.id),class:"btn btn-outline-success btn-lg" %>
-        <%= link_to "削除", post_path(@post.id), data: { turbo_method: :delete } ,class:"btn btn-outline-success btn-lg" %>
+        <%= link_to "削除", post_path(@post.id), data: { turbo_method: :delete } ,class:"btn btn-outline-danger btn-lg" %>
       </div>
     <% end %>
     <% end %>
@@ -44,7 +44,7 @@
        </div>
       <div class="text-center">
         <% if comment.user == current_user %>
-          <%= link_to "削除", post_comment_path(comment.post,comment), data: { turbo_method: :delete }, class:"btn btn-outline-success" %>
+          <%= link_to "削除", post_comment_path(comment.post,comment), data: { turbo_method: :delete }, class:"btn btn-outline-danger btn-sm" %>
         <% end %>
       </div>
     <% end %>
