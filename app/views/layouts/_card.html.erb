@@ -5,7 +5,7 @@
       <div class="card"> 
         <%= image_tag post.image, class: "card-img-top"%>
         <div class="card-body">
-          <h5 class="text-center"><%=post.title%></h5>
+          <h5 class="text-center"><%=safe_join(post.title.split("\n"),tag(:br))%></h5>
           <p class="text-center"><%= post.text.truncate(20) %></p>
           <div class="text-center">
             <%=link_to '続きを読む', post_path(post.id), class: "btn btn-outline-success"%>
