@@ -36,25 +36,8 @@
 
 <div class="libraries-container">
   <h2 class="text-center">投稿一覧</h2>
-<%# 投稿 %>
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-3">
-    <% @posts.each do |post| %>
-     <div class="col"> 
-      <div class="card"> 
-        <%= image_tag post.image, class: "card-img-top"%>
-        <div class="card-body">
-          <h5 class="text-center"><%=post.title%></h5>
-          <p class="text-center"><%=post.text%></p>
-          <div class="text-center">
-            <%=link_to '続きを読む', post_path(post.id), class: "btn btn-outline-success"%>
-          </div>
-        </div>
-      </div>
-    </div> 
-  <% end %>
- </div>
-</div>
+
+<%= render "layouts/card" %>
 
 <%= paginate @posts %>
 <hr>

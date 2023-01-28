@@ -1,18 +1,4 @@
-<h2 class="text-center">あなたの投稿</h2>
-
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-3">
-    <% @posts.each do |post| %>
-     <div class="col"> 
-      <div class="card"> 
-        <%= image_tag post.image, class: "card-img-top"%>
-        <div class="card-body">
-          <h5 class="text-center"><%=post.title%></h5>
-          <p class="text-center"><%=post.text%></p>
-          <%=link_to '続きを読む', post_path(post.id), class: "btn btn-outline-success"%>
-        </div>
-      </div>
-    </div> 
-  <% end %>
- </div>
+<div class="acount-wrapper">
+  <h2 class="text-center">あなたの投稿</h2>
+  <%= render "layouts/card" %>
 </div>

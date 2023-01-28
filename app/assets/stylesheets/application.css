@@ -714,6 +714,13 @@ li {
   border: 1px solid #808080;
  }
 
+ /* 個人ページの装飾 */
+ .acount-wrapper {
+  background-color:#F4F5F7;
+  padding-top: 10px;
+  padding-bottom: 300px;
+ }
+
 
 
 

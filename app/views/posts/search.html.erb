@@ -1,3 +1,4 @@
+<h2 class="text-center">検索結果</h2>
 <div class="container">
   <div class="row row-cols-1 row-cols-md-3">
     <% @results.each do |result| %>
@@ -7,7 +8,9 @@
         <div class="card-body">
           <h5 class="text-center"><%=result.title%></h5>
           <p class="text-center"><%=result.text%></p>
-          <%=link_to '続きを読む', post_path(result.id), class: "btn btn-outline-success"%>
+          <div class="text-center">
+            <%=link_to '続きを読む', post_path(result.id), class: "btn btn-outline-success"%>
+          </div>
         </div>
       </div>
     </div> 
