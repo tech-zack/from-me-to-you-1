@@ -2,8 +2,8 @@
   <%= image_tag @post.image, class: "card-img"%>
   <div class="post-card-body">
     <p class="text-center">カテゴリー<%=@post.category.name%></p>
-    <h2 class="text-center"><%=@post.title%></h2>
-    <p class="text-center"><%=@post.text%></p>
+    <h2 class="text-center"><%=safe_join(@post.title.split("\n"),tag(:br))%></h2>
+    <p class="text-center"><%=safe_join(@post.text.split("\n"),tag(:br))%></p>
     <% if user_signed_in? %>
     <% if current_user.id == @post.user_id %>
       <div class="text-center">
@@ -37,7 +37,7 @@
     <% @post.comments.each do |comment| %>
     
       <div class="text-center">
-        <%= comment.comment %>
+        <%=safe_join(comment.comment.split("\n"),tag(:br)) %>
       </div>
       <div class="text-center">
         <%= comment.user.nickname%>
