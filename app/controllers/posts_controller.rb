@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_action :set_q, only: [:index, :search]
 
   def index
-    @posts = Post.all.page(params[:page]).per(3)
+    @posts = Post.page(params[:page]).per(3)
+    @random = Post.order("RAND()").limit(1)
   end
 
   def new

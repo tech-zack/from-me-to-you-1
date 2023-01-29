@@ -37,24 +37,22 @@
 <div class="libraries-container">
   <h2 class="text-center">投稿一覧</h2>
 
-<%= render "layouts/card" %>
+  <%= render "layouts/card" %>
+  <%= paginate @posts %>
 
-<%= paginate @posts %>
 <hr>
 
-<h2 class="text-center">言葉</h2>
-<%= paginate @posts %>
-<hr>
-
-<h2 class="text-center">景色</h2>
-<%= paginate @posts %>
-<hr>
-
-<h2 class="text-center">宝物</h2>
-<%= paginate @posts %>
-<hr>
-
-<h2 class="text-center">本日の一枚</h2>
+ <h2 class="text-center">
+    <%= link_to('本日のあなたへの1枚', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-outline-success")  %>
+ </h2> 
+<% @random.each do |post| %>
+  <%= image_tag post.image, class: "card-img-top"%>
+  <h5 class="text-center"><%=safe_join(post.title.split("\n"),tag(:br))%></h5>
+  <p class="text-center"><%= post.text.truncate(20) %></p>
+  <div class="text-center">
+    <%=link_to '続きを読む', post_path(post.id), class: "btn btn-outline-success"%>
+  </div>
+<% end %>
 </div>
 <%= render "layouts/footer" %>
 
