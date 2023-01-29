@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy]
   before_action :set_q, only: [:index, :search]
+  before_action :search_category_post, only:[:index, :category, :search, :show]
 
   def index
     @posts = Post.page(params[:page]).per(3).order("created_at DESC")
@@ -47,6 +48,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def category
+    @posts = @q.result.page(params[:page]).per(3).order("created_at DESC")
+    category_id = params[:q][:category_id_eq]
+    @category = Category.find_by(id: category_id)
+  end
+
   def search
     @results = @q.result
   end
@@ -55,6 +62,10 @@ class PostsController < ApplicationController
 
   def set_q
     @q = Post.ransack(params[:q])
+  end
+
+  def search_category_post
+    @q= Post.ransack(params[:q])
   end
 
   def post_params
