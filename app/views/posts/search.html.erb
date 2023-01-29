@@ -1,3 +1,4 @@
+<img src="/ogasuta458A8658.jpg" class="d-block w-100" height=300 alt="閲覧室">
 <div class="search-wrapper">
 <h2 class="text-center">検索結果</h2>
 <div class="container">
@@ -21,10 +22,14 @@
 <%if @results.length == 0%>
     <li class='list'>
       <%= link_to '#' do %> 
-        <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
+        <%= image_tag "/zarei_dougi.png", class: "card-img-top" %>
       <% end %>
-      <p class="text-center">あなたの投稿を届けよう</p>
+      <p class="text-center">申し訳ございません。入力されたタイトルはございません。</p>
     </li>
   <% end %>
+  <div class="text-center">
+    <%=link_to '戻る', posts_path, class: "btn btn-outline-success btn-lg"%>
+  </div>
   <%= paginate @results %>
 </div>
+<%= render "layouts/footer" %>

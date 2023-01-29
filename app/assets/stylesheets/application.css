@@ -724,13 +724,14 @@ li {
  .category-wrapper {
   background-color:#F4F5F7;
   padding-top: 10px;
-  padding-bottom: 300px;
+   
+  
  }
 
  .search-wrapper {
   background-color:#F4F5F7;
   padding-top: 10px;
-  padding-bottom: 300px;
+  padding-bottom: 10px;
  }
 
 
