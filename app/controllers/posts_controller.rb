@@ -55,7 +55,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @results = @q.result
+    @results = @q.result.page(params[:page]).per(3).order("created_at DESC")
   end
 
   private
