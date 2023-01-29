@@ -36,8 +36,15 @@
 
 <div class="libraries-container">
   <h2 class="text-center">投稿一覧</h2>
-
   <%= render "layouts/card" %>
+  <%if @posts.length == 0%>
+    <li class='list'>
+      <%= link_to '#' do %>
+        <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
+      <% end %>
+      <p class="text-center">あなたの投稿を届けよう</p>
+    </li>
+  <% end %>
   <%= paginate @posts %>
 
 <hr>
@@ -53,6 +60,14 @@
     <%=link_to 'あなたへの1枚を読む', post_path(post.id), class: "btn btn-outline-success btn-lg"%>
   </div>
 <% end %>
+<%if @posts.length == 0%>
+  <li class='list'>
+    <%= link_to '#' do %>
+      <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
+    <% end %>
+    <p class="text-center">あなたの投稿を届けよう</p>
+  </li>
+    <% end %>
 </div>
 <%= render "layouts/footer" %>
 
