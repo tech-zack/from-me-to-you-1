@@ -15,3 +15,5 @@ class Post < ApplicationRecord
     self.image.attached?
   end
 end
+
+

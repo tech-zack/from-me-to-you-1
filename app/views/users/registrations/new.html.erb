@@ -7,6 +7,12 @@
   <div class="card-body">
   <h2 class="text-center">新規登録 </h2>
     <div class="text-center">
+      <label for="exampleFormControlInput1" class="form-label">アイコン</label>
+      <div class="field">
+        <%= f.file_field :image, class:"form-control" %>
+      </div>
+    </div>
+    <div class="text-center">
       <label for="exampleFormControlInput1" class="form-label">ニックネーム</label>
       <div class="field">
         <%= f.text_field :nickname, class:"form-control", id: "nickname", placeholder:"例) 山田太郎", maxlength:"40" %>

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/show'
   get 'libraries/index'
   get 'libraries/show'
-  get 'acounts/show'
+  get 'users/show'
   devise_for :users
   get 'posts/index'
   get'/post/category', to: "posts#category"
@@ -12,6 +13,6 @@ Rails.application.routes.draw do
     end
     resources :comments, only:[:create, :destroy]
   end
-  resources :acounts, only: :show
+  resources :users, only: :show
   resources :libraries, only: [:index, :show]
 end

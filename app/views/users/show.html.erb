@@ -1,0 +1,23 @@
+<div class="user-wrapper">
+  <h1 class="text-center">マイページ</h1>
+  <div class="text-center">
+    <img src=<%= @user.image %> class = "icon_image" alt="アイコン">
+  </div>
+  <p class="text-center">ユーザー名</p>
+  <h5 class="text-center"><%=@user.nickname%></h5>
+  <p class="text-center">メールアドレス</p>
+  <h5 class="text-center"><%=@user.email%></h5>
+  <p class="text-center">プロフィール</p>
+  <h5 class="text-center"><%=@user.profile%></h5>
+  <div class="text-center">
+    <%= link_to "登録情報の更新",edit_user_registration_path, class: "btn btn-outline-success" %>
+  </div>
+</div>
+
+<div class="user-container">
+  <h2 class="text-center">あなたの投稿</h2>
+  <%= render "layouts/card" %>
+</div>
+
+
+
