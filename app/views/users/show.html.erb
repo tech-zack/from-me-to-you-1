@@ -42,6 +42,15 @@
 </div> 
 <%= paginate @likes %>
 
+<%if @likes.length == 0%>
+  <li class='list'>
+    <%= link_to '#' do %>
+      <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
+    <% end %>
+    <p class="text-center">あなたのいいねを見つけよう</p>
+  </li>
+<% end %>
+
 <h2 class="text-center">お気に入り一覧</h2>
 <div class="container">
   <div class="row row-cols-1 row-cols-md-3">
@@ -64,6 +73,15 @@
   </div>
 </div> 
 <%= paginate @favorites %>
+
+<%if @favorites.length == 0%>
+  <li class='list'>
+    <%= link_to '#' do %>
+      <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
+    <% end %>
+    <p class="text-center">あなたのお気に入りを見つけよう</p>
+  </li>
+<% end %>
 
 <%= render "layouts/footer" %>
 
