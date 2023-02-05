@@ -60,17 +60,21 @@
 
  <h2 class="text-center">
     <%= link_to('本日のあなたへの1枚', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-outline-success btn-lg")  %>
- </h2> 
+ </h2>
+<div class="card">   
 <% @random.each do |post| %>
-  <%= image_tag post.image, class: "card-img-top"%>
+  <%= image_tag post.image, class: "card-img-user"%>
+  <div class="card-body">
   <h3 class="text-center"><%=safe_join(post.title.split("\n"),tag(:br))%></h3>
   <h5 class="text-center"><%= post.text.truncate(20) %></h5>
   <div class="text-center">
     <p class="text-center">投稿者<%=post.user.nickname%></p>
     <p class="text-center">いいね♥<%= post.likes.count%></p>
     <%=link_to 'あなたへの1枚を読む', post_path(post.id), class: "btn btn-outline-success btn-lg"%>
+    </div>
   </div>
 <% end %>
+</div>
 <%if @posts.length == 0%>
   <li class='list'>
     <%= link_to '#' do %>
