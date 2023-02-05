@@ -19,6 +19,29 @@
   <%= render "layouts/card" %>
 </div>
 
+<h2 class="text-center">いいね一覧</h2>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3">
+    <% @likes.each do |like| %>
+    <div class="col"> 
+      <div class="card"> 
+        <%= image_tag like.post.image, class: "card-img-top"%>
+        <div class="card-body">
+          <h3 class="text-center"><%=safe_join(like.post.title.split("\n"),tag(:br))%></h3>
+          <h5 class="text-center"><%= like.post.text.truncate(20) %></h5>
+          <div class="text-center">
+            <p class="text-center">投稿者<%=like.post.user.nickname%></p>
+            <p class="text-center">いいね♥<%= like.post.likes.count%></p>
+            <%=link_to '続きを読む', post_path(like.post.id), class: "btn btn-outline-success"%>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <% end %>
+  </div>
+</div> 
+<%= paginate @likes %>
+
 <h2 class="text-center">お気に入り一覧</h2>
 <div class="container">
   <div class="row row-cols-1 row-cols-md-3">
@@ -27,11 +50,11 @@
       <div class="card"> 
         <%= image_tag favorite.post.image, class: "card-img-top"%>
         <div class="card-body">
-          <h5 class="text-center"><%=safe_join(favorite.post.title.split("\n"),tag(:br))%></h5>
-          <p class="text-center"><%= favorite.post.text.truncate(20) %></p>
+          <h3 class="text-center"><%=safe_join(favorite.post.title.split("\n"),tag(:br))%></h3>
+          <h5 class="text-center"><%= favorite.post.text.truncate(20) %></h5>
           <div class="text-center">
             <p class="text-center">投稿者<%=favorite.post.user.nickname%></p>
-            いいね♥<%= favorite.post.likes.count%>
+            <p class="text-center">いいね♥<%= favorite.post.likes.count%></p>
             <%=link_to '続きを読む', post_path(favorite.post.id), class: "btn btn-outline-success"%>
           </div>
         </div>
@@ -40,6 +63,7 @@
     <% end %>
   </div>
 </div> 
+<%= paginate @favorites %>
 
 <%= render "layouts/footer" %>
 

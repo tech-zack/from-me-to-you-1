@@ -5,11 +5,11 @@
       <div class="card"> 
         <%= image_tag post.image, class: "card-img-top"%>
         <div class="card-body">
-          <h5 class="text-center"><%=safe_join(post.title.split("\n"),tag(:br))%></h5>
-          <p class="text-center"><%= post.text.truncate(20) %></p>
+          <h3 class="text-center"><%=safe_join(post.title.split("\n"),tag(:br))%></h3>
+          <h5 class="text-center"><%= post.text.truncate(20) %></h5>
           <div class="text-center">
           <p class="text-center">投稿者<%=post.user.nickname%></p>
-          いいね♥<%= post.likes.count%>
+          <p class="text-center">いいね♥<%= post.likes.count%></p>
             <%=link_to '続きを読む', post_path(post.id), class: "btn btn-outline-success"%>
           </div>
         </div>
