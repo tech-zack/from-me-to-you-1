@@ -2,9 +2,9 @@
   <div class="text-center">
     <% if user_signed_in? && current_user != @post.user %>
       <% if current_user.favorite_find(@post.id) %>
-        <%= link_to 'お気に入りからはずす', post_favorites_path(@post.id), data: { turbo_method: :delete },class:"like-btn" %>
+        <%= link_to 'お気に入りからはずす', post_favorites_path(@post.id), data: { turbo_method: :delete },class:"like-btn btn-outline-success" %>
       <% else %>
-        <%= link_to 'お気に入り登録する', post_favorites_path(@post.id), data: { turbo_method: :post },class:"like-btn" %>
+        <%= link_to 'お気に入り登録する', post_favorites_path(@post.id), data: { turbo_method: :post },class:"like-btn btn-outline-success" %>
       <% end %>
     <% end %>
   </div>
