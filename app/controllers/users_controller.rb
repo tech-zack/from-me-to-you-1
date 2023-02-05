@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @posts = current_user.posts.all.page(params[:page]).per(3)
+    @favorites = current_user.favorites.all.page(params[:page]).per(3)
+    @likes = current_user.likes.all.page(params[:page]).per(3)
     @user = current_user
   end
 
