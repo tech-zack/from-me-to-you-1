@@ -681,6 +681,12 @@ textarea,
   background-attachment: fixed;
 }
 
+.like-wrapper {
+  background-color:#F4F5F7;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .user-container {
   background-image: url('/paku_akjfalsdjklasadfa.jpg');
   background-size: cover;
@@ -774,6 +780,14 @@ li {
   padding-bottom: 10px;
  }
 
+ .like-btn {
+  color:#272727;;
+  text-decoration: none;
+ }
+ .like-btn:hover {
+  color:#272727;
+  text-decoration: none;
+ }
 
 
 

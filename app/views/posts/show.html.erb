@@ -4,6 +4,7 @@
     <p class="text-center">カテゴリー<%=@post.category.name%></p>
     <h2 class="text-center"><%=safe_join(@post.title.split("\n"),tag(:br))%></h2>
     <p class="text-center"><%=safe_join(@post.text.split("\n"),tag(:br))%></p>
+    <p class="text-center">投稿者<%=@post.user.nickname%></p>
     <% if user_signed_in? %>
     <% if current_user.id == @post.user_id %>
       <div class="text-center">
@@ -14,8 +15,9 @@
     <% end %>
   </div>
 
+<%= render "layouts/like" %>
+
 <% if user_signed_in? %>
- 
    <div class="card mx-auto" style="max-width: 650px">
       <div class="card-body">
        <h5 class="text-center">メッセージを届ける</h5>
