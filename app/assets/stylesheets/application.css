@@ -791,11 +791,6 @@ li {
   background-color:#272727;
  }
 
- .comment_nickname {
-  color:#272727;
-  text-decoration: none;
- }
-
  .comment_nickname:hover {
   border-radius: 10px;
   color:#272727;
@@ -824,6 +819,12 @@ li {
   text-decoration: none;
  }
 
+ .nickname {
+  color:#272727;
+  text-decoration: none;
+ }
+
+ 
  
 
 

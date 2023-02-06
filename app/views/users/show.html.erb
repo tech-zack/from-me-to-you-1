@@ -3,22 +3,40 @@
   <div class="text-center">
     <img src=<%= @user.image %> class = "icon_image" alt="アイコン">
   </div>
+  <% if current_user.id == @user.id %>
     <p class="text-center">ユーザー名</p>
     <h5 class="text-center"><%=@user.nickname%></h5>
     <p class="text-center">メールアドレス</p>
     <h5 class="text-center"><%=@user.email%></h5>
+  <% end %>
     <p class="text-center">プロフィール</p>
     <h5 class="text-center"><%=@user.profile%></h5>
+  <% if current_user.id == @user.id %>
     <div class="text-center">
-    <%= link_to "登録情報の更新",edit_user_registration_path, class: "btn   btn-outline-success" %>
+      <%= link_to "登録情報の更新",edit_user_registration_path, class: "btn   btn-outline-success" %>
     </div>
-    </div>
+  <% end %>
+</div>
+
+<% if current_user.id != @user.id %>
+<div class="like-wrapper">
+<div class="text-center">
+<% if current_user.following?(@user) %>
+  <%= link_to "フォロー外す", user_relationships_path(@user.id), data: { turbo_method: :delete },class:"like-btn btn-outline-success" %>
+<% else %>
+  <%= link_to "フォローする", user_relationships_path(@user.id), data: { turbo_method: :post },class:"like-btn btn-outline-success" %>
+<% end %>
+</div>
+</div>
+<%end%>
 
 <div class="user-container">
   <h2 class="text-center"><%= @user.nickname %>さんの投稿</h2>
   <%= render "layouts/card" %>
 </div>
+<%= paginate @posts %>
 
+<% if current_user.id == @user.id %>
 <h2 class="text-center">いいね一覧</h2>
 <div class="container">
   <div class="row row-cols-1 row-cols-md-3">
@@ -81,6 +99,41 @@
     <% end %>
     <p class="text-center">あなたのお気に入りを見つけよう</p>
   </li>
+<% end %>
+
+<h2 class="text-center">フォロー一覧</h2>
+<h5 class="text-center">フォロー数: <%= @user.followings.count %></h5>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3">
+    <% @followings.each do |following| %>
+     <div class="col"> 
+      <div class="card"> 
+        <img src=<%= following.image %> class = "card-img-top" alt="アイコン">
+        <div class="card-body">
+          <h3 class="text-center"><%=following.nickname %></h3>
+        </div>
+      </div>
+     </div> 
+    <% end %>
+  </div>
+</div>
+
+<h2 class="text-center">フォロワー一覧</h2>
+<h5 class="text-center">フォロワー数: <%= @user.followers.count %></h5>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3">
+    <% @followers.each do |follower| %>
+     <div class="col"> 
+      <div class="card"> 
+        <img src=<%= follower.image %> class = "card-img-top" alt="アイコン">
+        <div class="card-body">
+          <h3 class="text-center"><%=follower.nickname %></h3>
+        </div>
+      </div>
+     </div> 
+    <% end %>
+  </div>
+</div>
 <% end %>
 
 <%= render "layouts/footer" %>
