@@ -18,6 +18,27 @@
   <% end %>
 </div>
 
+
+<% if @user.id != current_user.id %>
+   <% if @isRoom == true %>
+   <div class="like-wrapper">
+   <div class="text-center">
+     <%= link_to "ダイレクトメッセージ", room_path(@roomId),class:"like-btn btn-outline-success" %>
+   <% else %>
+     <%= form_with model: @room, local: true do |f|%>
+       <%= fields_for @RoomUser do |room| %> 
+         <%= room.hidden_field :user_id, value: @user.id %>
+       <% end %>
+       <div class="text-center">
+       <%= f.submit "チャットを始める",class:"like-btn btn-outline-success" %>
+       </div>
+     <% end %>
+     </div>
+     </div>
+   <% end %>
+<% end %>
+
+
 <% if current_user.id != @user.id %>
 <div class="like-wrapper">
 <div class="text-center">
@@ -89,7 +110,7 @@
     </div> 
     <% end %>
   </div>
-</div> 
+
 <%= paginate @favorites %>
 
 <%if @favorites.length == 0%>
@@ -100,6 +121,7 @@
     <p class="text-center">あなたのお気に入りを見つけよう</p>
   </li>
 <% end %>
+</div> 
 
 <h2 class="text-center">フォロー一覧</h2>
 <h5 class="text-center">フォロー数: <%= @user.followings.count %></h5>
@@ -107,15 +129,28 @@
   <div class="row row-cols-1 row-cols-md-3">
     <% @followings.each do |following| %>
      <div class="col"> 
-      <div class="card"> 
-        <img src=<%= following.image %> class = "card-img-top" alt="アイコン">
+      <div class="text-center"> 
+        <img src=<%= following.image %> class = "card-img-icon" alt="アイコン">
         <div class="card-body">
-          <h3 class="text-center"><%=following.nickname %></h3>
+          <h3 class="text-center">
+            <%=link_to following.nickname, user_path(following.id),class:"nickname" %>
+          </h3>
         </div>
       </div>
      </div> 
     <% end %>
   </div>
+
+<%= paginate @followings %>
+
+<%if @followings.length == 0%>
+  <li class='list'>
+    <%= link_to '#' do %>
+      <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
+    <% end %>
+    <p class="text-center">たくさんフォローしよう</p>
+  </li>
+<% end %>
 </div>
 
 <h2 class="text-center">フォロワー一覧</h2>
@@ -124,19 +159,32 @@
   <div class="row row-cols-1 row-cols-md-3">
     <% @followers.each do |follower| %>
      <div class="col"> 
-      <div class="card"> 
-        <img src=<%= follower.image %> class = "card-img-top" alt="アイコン">
+      <div class="text-center"> 
+        <img src=<%= follower.image %> class = "card-img-icon" alt="アイコン">
         <div class="card-body">
-          <h3 class="text-center"><%=follower.nickname %></h3>
+          <h3 class="text-center">
+            <%=link_to follower.nickname, user_path(follower.id),class:"nickname" %>
+          </h3>
         </div>
       </div>
      </div> 
     <% end %>
   </div>
-</div>
+
+
+<%if @followers.length == 0%>
+  <li class='list'>
+    <%= link_to '#' do %>
+      <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
+    <% end %>
+    <p class="text-center">たくさんの人にフォローされよう</p>
+  </li>
+<% end %>
 <% end %>
 
-<%= render "layouts/footer" %>
+<%= paginate @followers %>
+</div>
 
+<%= render "layouts/footer" %>
 
 

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
-  resources :users, only: [:show] do
+  resources :users, only: [:show, :edit, :update] do
     collection do
       get 'favorites'
     end
@@ -28,5 +28,7 @@ Rails.application.routes.draw do
     end
     resource :relationships, only: [:create, :destroy]
   end
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :show]
   resources :libraries, only: [:index, :show]
 end

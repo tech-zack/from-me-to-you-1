@@ -8,6 +8,23 @@ class UsersController < ApplicationController
     @likes = current_user.likes.all.page(params[:page]).per(3)
     @followings = @user.followings.all.page(params[:page]).per(3)
     @followers = @user.followers.all.page(params[:page]).per(3)
+    @current_RoomUser = RoomUser.where(user_id: current_user.id)
+    @another_User = RoomUser.where(user_id: @user.id)
+    if @user.id != current_user.id
+      @current_RoomUser.each do |current|
+        @another_User.each do |another|
+          if current.room_id == another.room_id then
+            @isRoom = true
+            @roomId = current.room_id
+          end
+        end
+      end
+      if @isRoom
+      else
+        @room = Room.new
+        @RoomUser = RoomUser.new
+      end
+    end
   end
 
   def followings
