@@ -15,13 +15,27 @@
     <% end %>
   </div>
 
+  <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">投稿</li>
+  </ol>
+</nav>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=link_to '閲覧室', posts_index_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">投稿</li>
+  </ol>
+</nav>
+
 <%= render "layouts/like" %>
 <%= render "layouts/favorite" %>
 
 <% if user_signed_in? %>
 <h5 class="text-center">メッセージを届ける</h5>
    <div class="mx-auto" style="max-width: 650px">
-      <div class="card-body">
+      <%# <div class="card-body"> %>
         <%= form_with model:[@post,@comment] do |f| %>
         <div class="text-center">
           <%= f.text_area :comment,required: true, class: "form-control" %>
@@ -30,12 +44,12 @@
           <%= f.submit "送信", class:"btn btn-outline-success" %>
         </div>
         <% end %>
-      </div>
+      <%# </div> %>
     </div>
 <% end %>
  <h5 class="text-center">メッセージ</h5>
 <div class="card mx-auto" style="max-width: 650px">
-  <div class="card-body">
+  <%# <div class="card-body"> %>
     <% @post.comments.each do |comment| %>
       <div class="text-center">
         <h5><%=safe_join(comment.comment.split("\n"),tag(:br)) %></h5>
@@ -50,8 +64,9 @@
           <%= link_to "削除", post_comment_path(comment.post,comment), data: { turbo_method: :delete }, class:"btn btn-outline-danger btn-sm" %>
         <% end %>
       </div>
-    <% end %>
-  </div>
+ <% end %>
+    
+  <%# </div> %>
 </div> 
 </div>
 <%= render "layouts/footer" %>

@@ -34,7 +34,22 @@
 
 <img src="/ogasuta458A7873.jpg" class="d-block w-100" height=400 alt="閲覧室">
 
+
 <div class="libraries-container">
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">閲覧室</li>
+  </ol>
+</nav>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">閲覧室</li>
+  </ol>
+</nav>
+
   <h2 class="text-center">投稿一覧</h2>
   <%= render "layouts/card" %>
   <%if @posts.length == 0%>

@@ -16,7 +16,6 @@
       <%= link_to "登録情報の更新",edit_user_registration_path, class: "btn   btn-outline-success" %>
     </div>
   <% end %>
-</div>
 
 
 <% if @user.id != current_user.id %>
@@ -37,6 +36,7 @@
      </div>
    <% end %>
 <% end %>
+</div>
 
 
 <% if current_user.id != @user.id %>
@@ -51,7 +51,20 @@
 </div>
 <%end%>
 
+
 <div class="user-container">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page"><%= @user.nickname %>さんのページ</li>
+  </ol>
+</nav>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%=link_to '閲覧室', posts_index_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @user.nickname %>さんのページ</li>
+  </ol>
+</nav>
   <h2 class="text-center"><%= @user.nickname %>さんの投稿</h2>
   <%= render "layouts/card" %>
 </div>
@@ -122,7 +135,6 @@
   </li>
 <% end %>
 </div> 
-
 <h2 class="text-center">フォロー一覧</h2>
 <h5 class="text-center">フォロー数: <%= @user.followings.count %></h5>
 <div class="container">
@@ -131,11 +143,9 @@
      <div class="col"> 
       <div class="text-center"> 
         <img src=<%= following.image %> class = "card-img-icon" alt="アイコン">
-        <div class="card-body">
           <h3 class="text-center">
             <%=link_to following.nickname, user_path(following.id),class:"nickname" %>
           </h3>
-        </div>
       </div>
      </div> 
     <% end %>
@@ -161,11 +171,9 @@
      <div class="col"> 
       <div class="text-center"> 
         <img src=<%= follower.image %> class = "card-img-icon" alt="アイコン">
-        <div class="card-body">
           <h3 class="text-center">
             <%=link_to follower.nickname, user_path(follower.id),class:"nickname" %>
           </h3>
-        </div>
       </div>
      </div> 
     <% end %>
@@ -183,6 +191,7 @@
 <% end %>
 
 <%= paginate @followers %>
+
 </div>
 
 <%= render "layouts/footer" %>

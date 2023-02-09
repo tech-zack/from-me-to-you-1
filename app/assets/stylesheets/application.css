@@ -713,6 +713,11 @@ li {
   padding: 10px;
 }
 
+.card-body {
+  background-color:#F4F5F7;
+  border: 1px solid #808080; 
+}
+
 /* あなたの一枚 */
 .card-img-user {
   height: 300px;
