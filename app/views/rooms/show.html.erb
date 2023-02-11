@@ -1,11 +1,25 @@
 <img src="/Photoelly051.jpg" class="d-block w-100" height=300 alt="閲覧室">
-<div class="chat-room">
- <h1 class="text-center">メッセージ</h1>
- <% @RoomUsers.each do |room| %> 
-     <div class="text-center"><img src=<%= room.user.image %> class = "comment_icon" alt="アイコン"><%= room.user.nickname %>さん</div>
- <% end %>
 
-<%= render "messages/message" %>
- 
-</div>
+  <div class="chat-room">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">メッセージ</li>
+      </ol>
+    </nav>
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
+        <li class="breadcrumb-item"><%= link_to "#{current_user.nickname}さんのページ",user_path(current_user.id)%></li>
+        <li class="breadcrumb-item active" aria-current="page">閲覧室</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-center">メッセージ</h1>
+      <% @RoomUsers.each do |room| %> 
+        <div class="text-center"><img src=<%= room.user.image %> class = "comment_icon" alt="アイコン"><%= room.user.nickname %>さん</div>
+      <% end %>
+      <%= render "messages/message" %>
+  </div>
 <%= render "layouts/footer" %>

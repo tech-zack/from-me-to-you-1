@@ -32,6 +32,7 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
     <li class="breadcrumb-item"><%=link_to '閲覧室', posts_index_path %></li>
     <li class="breadcrumb-item active" aria-current="page"><%= @user.nickname %>さんのページ</li>
   </ol>
