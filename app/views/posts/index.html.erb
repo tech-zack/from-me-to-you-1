@@ -46,7 +46,12 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
+    <% if user_signed_in?%>
+    <li class="breadcrumb-item"><%= link_to "#{current_user.nickname}さんのページ",user_path(current_user.id)%></li>
     <li class="breadcrumb-item active" aria-current="page">閲覧室</li>
+    <% else %>
+    <li class="breadcrumb-item active" aria-current="page">閲覧室</li>
+    <% end %>
   </ol>
 </nav>
 
@@ -55,11 +60,11 @@
   
 
 <hr>
-  <%= render "layouts/category_search" %>
+  <%= render "categories/category_search" %>
 <hr>
 
 
- <%= render "layouts/yours" %>
+ <%= render "yours/yours" %>
 
 </div>
 <%= render "layouts/footer" %>

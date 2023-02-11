@@ -10,7 +10,7 @@
               <h3 class="text-center"><%=safe_join(post.title.split("\n"),tag(:br))%></h3>
               <h5 class="text-center"><%= post.text.truncate(20) %></h5>
               <div class="text-center">
-                <p class="text-center"><img src=<%=post.user.image %> class = "comment_icon" alt="アイコン"><%=link_to post.user.nickname, user_path(post.user_id),class:"nickname" %></p>
+                <p class="text-center"><img src=<%=post.user.image %> class = "comment_icon" alt="アイコン"><%=post.user.nickname %></p>
                 <p class="text-center">いいね♥<%= post.likes.count%></p>
                 <%=link_to '続きを読む', post_path(post.id), class: "btn btn-outline-success"%>
               </div>
@@ -22,13 +22,15 @@
 </div>
 
 <%if @posts.length == 0%>
-    <li class='list'>
-      <%= link_to '#' do %>
-        <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
-      <% end %>
+  <div class="card mx-auto" style="max-width: 800px">
+    <%= link_to '#' do %>
+      <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
+    <% end %>
+    <div class="card-body">
       <p class="text-center">あなたの思いを届けよう</p>
-    </li>
-  <% end %>
+    </div>
+  </div>
+<% end %>
 
 <%= paginate @posts %>
 

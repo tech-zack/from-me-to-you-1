@@ -1,0 +1,41 @@
+<%= turbo_frame_tag "like_card" do %>
+
+<% if current_user.id == @user.id %>
+  <h2 class="text-center">いいね一覧</h2>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3">
+        <% @likes.each do |like| %>
+          <div class="col"> 
+            <div class="card">      
+              <%= image_tag like.post.image, class: "card-img-top"%>
+              <div class="card-body">
+                <h3 class="text-center"><%=safe_join(like.post.title.split("\n"),tag(:br))%></h3>
+                <h5 class="text-center"><%= like.post.text.truncate(20) %></h5>
+                <div class="text-center">
+                  <p class="text-center"><img src=<%=like.post.user.image %> class = "comment_icon" alt="アイコン"><%=like.post.user.nickname%></p>
+                  <p class="text-center">いいね♥<%= like.post.likes.count%></p>
+                  <%=link_to '続きを読む', post_path(like.post.id), class: "btn btn-outline-success"%>
+                </div>
+              </div>
+            </div>
+          </div> 
+        <% end %>
+      </div>
+    </div> 
+
+<%if @likes.length == 0%>
+  <div class="card mx-auto" style="max-width: 800px">
+    <%= link_to '#' do %>
+      <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
+    <% end %>
+    <div class="card-body">
+      <p class="text-center">あなたのいいねを届けよう</p>
+    </div>
+  </div>
+<% end %>
+
+<%= paginate @likes %>
+
+<% end %>
+
+<% end %>

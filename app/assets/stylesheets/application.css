@@ -691,11 +691,11 @@ textarea,
   background-image: url('/paku_akjfalsdjklasadfa.jpg');
   background-size: cover;
   background-position: center center;
-  background-color:rgba(255,255,255,0.8);
+  background-color:rgba(255,255,255,0.5);
   background-blend-mode:color;
   background-attachment: fixed; 
   padding-top: 1px;
-  padding-bottom: 1px;
+  padding-bottom: 100px;
 }
 
 /* 注意書き */
@@ -943,6 +943,10 @@ li {
   padding-bottom: 10px;
 }
 
+.footer-container {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 
 
 
