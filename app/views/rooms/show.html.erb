@@ -2,51 +2,10 @@
 <div class="chat-room">
  <h1 class="text-center">メッセージ</h1>
  <% @RoomUsers.each do |room| %> 
- <%# <div class="user-name"> %>
-     <%# <a class="rooms-user-link" href="/users/<%= room.user.id %>
      <div class="text-center"><img src=<%= room.user.image %> class = "comment_icon" alt="アイコン"><%= room.user.nickname %>さん</div>
-     
-     <%# </a> %>
- <%# </div> %>
  <% end %>
 
+<%= render "messages/message" %>
  
- <div class="chats" style="max-width:800px">
-     <% if @messages.present? %>
-       <% @messages.each do |message| %>
-       <%if message.user_id==current_user.id%>
-        <div class="mycomment">
-           <p><%= message.message %></p>
-           <%= message.created_at.strftime("%Y-%m-%d %H:%M") %>
-        </div>
-       <%else%>
-        <div class="fukidasi">
-          <div class="faceicon">
-            <img src=<%= message.user.image %> class = "comment_icon" alt="アイコン">
-          </div>
-          <div class="chatting">
-            <div class="says">
-              <p><%= message.message %></p>
-              <p><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-            </div>
-          </div>
-        </div>
-      <%end%>
-      <% end %>
-     <% end %>
-   </div>
-   
-   <div class="mx-auto" style="max-width: 400px">
-    <div class="card-body">
-     <%= form_with model: @message, local: true do |f| %>
-     <div class="text-center">
-       <%= f.text_field :message, placeholder: "メッセージを入力してください",class: "form-control" %>
-     </div>
-     <div class="text-center">
-       <%= f.hidden_field :room_id, value: @room.id %>
-       <%= f.submit "送信する",class:"btn btn-outline-success" %>
-      </div>
-     <% end %>
-   </div>
-   </div>
 </div>
+<%= render "layouts/footer" %>

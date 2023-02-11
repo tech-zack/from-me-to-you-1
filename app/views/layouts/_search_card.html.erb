@@ -1,0 +1,37 @@
+<%= turbo_frame_tag "search_card_btn" do %>
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3">
+    <% @results.each do |result| %>
+      <div class="col"> 
+        <div class="card"> 
+          <%= image_tag result.image, class: "card-img-top"%>
+          <div class="card-body">
+            <h5 class="text-center"><%=safe_join(result.title.split("\n"),tag(:br))%></h5>
+            <p class="text-center"><%= result.text.truncate(20) %></p>
+            <div class="text-center">
+              <%=link_to '続きを読む', post_path(result.id), class: "btn btn-outline-success"%>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %> 
+  </div> 
+</div>
+
+<%if @results.length == 0%>
+  <li class='list'>
+    <%= link_to '#' do %> 
+      <%= image_tag "/zarei_dougi.png", class: "card-img-top" %>
+    <% end %>
+    <p class="text-center">申し訳ございません。入力されたタイトルはございません。</p>
+  </li>
+<% end %>
+
+<div class="text-center">
+  <%=link_to '戻る', posts_path, class: "btn btn-outline-success btn-lg"%>
+</div>
+
+<%= paginate @results %>
+
+<% end %>

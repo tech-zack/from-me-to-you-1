@@ -1,19 +1,35 @@
+<%= turbo_frame_tag "card_btn" do %>
+
 <div class="container">
   <div class="row row-cols-1 row-cols-md-3">
     <% @posts.each do |post| %>
-     <div class="col"> 
-      <div class="card"> 
-        <%= image_tag post.image, class: "card-img-top"%>
-        <div class="card-body">
-          <h3 class="text-center"><%=safe_join(post.title.split("\n"),tag(:br))%></h3>
-          <h5 class="text-center"><%= post.text.truncate(20) %></h5>
-          <div class="text-center">
-          <p class="text-center"><img src=<%=post.user.image %> class = "comment_icon" alt="アイコン"><%=link_to post.user.nickname, user_path(post.user_id),class:"nickname" %></p>
-          <p class="text-center">いいね♥<%= post.likes.count%></p>
-            <%=link_to '続きを読む', post_path(post.id), class: "btn btn-outline-success"%>
-          </div>
+      <div class="col"> 
+        <div class="card"> 
+          <%= image_tag post.image, class: "card-img-top"%>
+            <div class="card-body">
+              <h3 class="text-center"><%=safe_join(post.title.split("\n"),tag(:br))%></h3>
+              <h5 class="text-center"><%= post.text.truncate(20) %></h5>
+              <div class="text-center">
+                <p class="text-center"><img src=<%=post.user.image %> class = "comment_icon" alt="アイコン"><%=link_to post.user.nickname, user_path(post.user_id),class:"nickname" %></p>
+                <p class="text-center">いいね♥<%= post.likes.count%></p>
+                <%=link_to '続きを読む', post_path(post.id), class: "btn btn-outline-success"%>
+              </div>
+            </div>
         </div>
-      </div>
-    </div> 
+      </div> 
+    <% end %>
+  </div>
+</div>
+
+<%if @posts.length == 0%>
+    <li class='list'>
+      <%= link_to '#' do %>
+        <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
+      <% end %>
+      <p class="text-center">あなたの思いを届けよう</p>
+    </li>
   <% end %>
- </div>
+
+<%= paginate @posts %>
+
+<% end %>

@@ -1,0 +1,35 @@
+<%= turbo_frame_tag "comment_btn" do %>
+
+<% if user_signed_in? %>
+  <h5 class="text-center">メッセージを届ける</h5>
+    <div class="mx-auto" style="max-width: 650px">
+      <%= form_with model:[@post,@comment] do |f| %>
+        <div class="text-center">
+          <%= f.text_area :comment,required: true, class: "form-control" %>
+        </div>
+        <div class="text-center">
+          <%= f.submit "送信", class:"btn btn-outline-success" %>
+        </div>
+      <% end %>
+    </div>
+<% end %>
+
+<h5 class="text-center">メッセージ</h5>
+  <div class="card mx-auto" style="max-width: 650px">
+    <% @post.comments.each do |comment| %>
+      <div class="text-center">
+        <h5><%=safe_join(comment.comment.split("\n"),tag(:br)) %></h5>
+        <small><%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></small>
+      </div>
+      <div class="text-center">
+        <img src=<%=comment.user.image %> class = "comment_icon" alt="アイコン">
+        <%=link_to comment.user.nickname, user_path(comment.user_id),class:"nickname" %> 
+      </div>
+      <div class="text-center">
+        <% if comment.user == current_user %>
+          <%= link_to "削除", post_comment_path(comment.post,comment), data: { turbo_method: :delete }, class:"btn btn-outline-danger btn-sm" %>
+        <% end %>
+    <% end %>
+  </div>
+
+<% end %>

@@ -52,52 +52,15 @@
 
   <h2 class="text-center">投稿一覧</h2>
   <%= render "layouts/card" %>
-  <%if @posts.length == 0%>
-    <li class='list'>
-      <%= link_to '#' do %>
-        <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
-      <% end %>
-      <p class="text-center">あなたの投稿を届けよう</p>
-    </li>
-  <% end %>
-  <%= paginate @posts %>
+  
 
 <hr>
-  <h2 class="text-center">カテゴリー検索</h2>
-  <%= search_form_for @q ,url: post_category_path do |f| %>
-    <div class="text-center">
-      <%= f.collection_select :category_id_eq, Category.where.not(id:1), :id, :name %>
-      <%= f.submit '探す', class:"btn btn-outline-success btn-sm" %>
-    </div>
-  <% end %>
-
+  <%= render "layouts/category_search" %>
 <hr>
 
- <h2 class="text-center">
-    <%= link_to('本日のあなたへの1枚', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-outline-success btn-lg")  %>
- </h2>
-<div class="card">   
-<% @random.each do |post| %>
-  <%= image_tag post.image, class: "card-img-user"%>
-  <div class="card-body">
-  <h3 class="text-center"><%=safe_join(post.title.split("\n"),tag(:br))%></h3>
-  <h5 class="text-center"><%= post.text.truncate(20) %></h5>
-  <div class="text-center">
-    <p class="text-center"><img src=<%=post.user.image %> class = "comment_icon" alt="アイコン"><%=link_to post.user.nickname, user_path(post.user_id),class:"nickname" %></p>
-    <p class="text-center">いいね♥<%= post.likes.count%></p>
-    <%=link_to 'あなたへの1枚を読む', post_path(post.id), class: "btn btn-outline-success btn-lg"%>
-    </div>
-  </div>
-<% end %>
-</div>
-<%if @posts.length == 0%>
-  <li class='list'>
-    <%= link_to '#' do %>
-      <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
-    <% end %>
-    <p class="text-center">あなたの投稿を届けよう</p>
-  </li>
-<% end %>
+
+ <%= render "layouts/yours" %>
+
 </div>
 <%= render "layouts/footer" %>
 

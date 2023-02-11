@@ -19,15 +19,7 @@
     <%= @category.name %>
   </h2>
     <%= render "layouts/card" %>
-  <%if @posts.length == 0%>
-    <li class='list'>
-      <%= link_to '#' do %>
-        <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
-      <% end %>
-      <p class="text-center">あなたの思いを届けよう</p>
-    </li>
-  <% end %>
-    <%= paginate @posts %>
+    
     <div class="text-center">
       <%=link_to '戻る', posts_path, class: "btn btn-outline-success btn-lg"%>
     </div>
