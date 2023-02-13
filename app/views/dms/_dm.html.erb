@@ -1,22 +1,22 @@
 <%= turbo_frame_tag "dm_btn" do %>
 
 <% if @user.id != current_user.id %>
+  <div class="like-wrapper">
    <% if @isRoom == true %>
-   <div class="like-wrapper">
    <div class="text-center">
      <%= link_to "ダイレクトメッセージ", room_path(@roomId),class:"like-btn btn-outline-success" %>
+   </div>
    <% else %>
      <%= form_with model: @room, local: true do |f|%>
        <%= fields_for @RoomUser do |room| %> 
          <%= room.hidden_field :user_id, value: @user.id %>
        <% end %>
        <div class="text-center">
-       <%= f.submit "チャットを始める",class:"like-btn btn-outline-success" %>
+         <%= f.submit "チャットを始める",class:"like-btn btn-outline-success" %>
        </div>
      <% end %>
-     </div>
-     </div>
    <% end %>
+  </div>
 <% end %>
 
 <% end %>

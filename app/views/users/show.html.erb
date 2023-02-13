@@ -16,10 +16,8 @@
         <%= link_to "登録情報の更新",edit_user_registration_path, class: "btn   btn-outline-success" %>
       </div>
     <% end %>
-
-  <%= render "dm/dm" %>
-  <%= render "followings/following" %>
-
+   <%= render "dms/dm" %>
+   <%= render "followings/following" %> 
 </div>
 
 <div class="user-container">
@@ -37,6 +35,8 @@
     <li class="breadcrumb-item active" aria-current="page"><%= @user.nickname %>さんのページ</li>
   </ol>
 </nav>
+
+  
 
 <% if current_user.id == @user.id %>
 
@@ -114,8 +114,11 @@
 
 <%= render "layouts/favorite_card" %>
 
+
 </div>
+
 <%= render "layouts/footer" %>
+
 
 
 
