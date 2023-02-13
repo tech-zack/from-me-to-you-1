@@ -765,6 +765,7 @@ li {
   background-color:#F4F5F7;
   padding-top: 10px;
   padding-bottom: 10px;
+  border: outset 10px rgb(100, 38, 38);
  }
 
  /* カテゴリー */
