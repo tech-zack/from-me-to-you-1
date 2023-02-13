@@ -21,6 +21,9 @@
         <li>
         <%=link_to '閲覧室', posts_index_path, class: "nav-link"%>
         </li>
+        <li>
+        <%=link_to '届ける', new_post_path, class: "nav-link"%>
+        </li>
       </ul>
       <%= search_form_for @q, url: search_posts_path do |f| %>
         <div class="d-flex">
