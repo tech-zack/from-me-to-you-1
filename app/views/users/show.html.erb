@@ -5,13 +5,14 @@
       <img src=<%= @user.image %> class = "icon_image" alt="アイコン">
     </div>
       <p class="text-center">ニックネーム</p>
-      <h5 class="text-center"><%=@user.nickname%></h5>
+      <div class="text-center"><%=@user.nickname%></div>
     <% if current_user.id == @user.id %>
       <p class="text-center">メールアドレス</p>
-      <h5 class="text-center"><%=@user.email%></h5>
+      <div class="text-center"><%=@user.email%></div>
     <% end %>
-      <p class="text-center">プロフィール</p>
-      <h5 class="text-center"><%=@user.profile%></h5>
+      <p class="text-center">フォロー数: <%= @user.followings.count%>フォロワー数: <%= @user.followers.count %></p>
+    <p class="text-center">プロフィール</p>
+      <div class="text-center"><%=@user.profile%></div>
     <% if current_user.id == @user.id %>
       <div class="text-center">
         <%= link_to "登録情報の更新",edit_user_registration_path, class: "btn   btn-outline-success" %>
@@ -50,9 +51,9 @@
         <div class="col"> 
           <div class="text-center"> 
             <img src=<%= following.image %> class = "card-img-icon" alt="アイコン">
-            <h3 class="text-center">
+            <h5 class="text-center">
               <%=link_to following.nickname, user_path(following.id),class:"nickname" %>
-            </h3>
+            </h5>
           </div>
         </div> 
       <% end %>
@@ -84,9 +85,9 @@
         <div class="col"> 
           <div class="text-center"> 
             <img src=<%= follower.image %> class = "card-img-icon" alt="アイコン">
-            <h3 class="text-center">
+            <h5 class="text-center">
               <%=link_to follower.nickname, user_path(follower.id),class:"nickname" %>
-            </h3>
+            </h5>
           </div>
         </div> 
       <% end %>
