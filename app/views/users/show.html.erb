@@ -10,7 +10,7 @@
       <p class="text-center">メールアドレス</p>
       <div class="text-center"><%=@user.email%></div>
     <% end %>
-      <p class="text-center">フォロー数: <%= @user.followings.count%>フォロワー数: <%= @user.followers.count %></p>
+      <p class="text-center">フォロー数: <%= @user.followings.count%>/フォロワー数: <%= @user.followers.count %></p>
     <p class="text-center">プロフィール</p>
       <div class="text-center"><%=@user.profile%></div>
     <% if current_user.id == @user.id %>
