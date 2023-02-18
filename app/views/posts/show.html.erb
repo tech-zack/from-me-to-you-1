@@ -1,10 +1,15 @@
+<header class="py-2 bg-dark">
+  <div class="footer-container">
+    <span class="text-muted">カテゴリー<%=@post.category.name%></span>
+  </div>
+</header>
+
 <div class="post-container">
 <div class="card mx-auto" style="max-width: 1000px">
 <div class="post-card-body">
 <h2 class="text-center"><%=safe_join(@post.title.split("\n"),tag(:br))%></h2>
 <p class="text-center">投稿日<%= @post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
   <%= image_tag @post.image, class: "card-img"%>
-  <p class="text-center">カテゴリー<%=@post.category.name%></p>
     <h4 class="text-center"><%=safe_join(@post.text.split("\n"),tag(:br))%></h4>
     <p class="text-center"><img src=<%=@post.user.image %> class = "comment_icon" alt="アイコン"><%=link_to @post.user.nickname, user_path(@post.user_id),class:"nickname" %></p>
     <% if user_signed_in? %>
@@ -36,3 +41,4 @@
   <%= render "favorites/favorite" %>
   <%= render "comments/comment" %>
 </div>
+<%= render "layouts/footer" %>
