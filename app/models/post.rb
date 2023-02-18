@@ -12,8 +12,8 @@ class Post < ApplicationRecord
   end
 
   validates :image, presence: true 
-  validates :title, presence: true, unless: :was_attached?
-  validates :text, presence: true, unless: :was_attached?
+  validates :title, presence: true
+  validates :text, presence: true
   validates :category_id, presence: true, unless: :was_attached?
   validates :category_id, numericality: { other_than: 1 } 
   
