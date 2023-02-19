@@ -1,113 +1,107 @@
 <div class="user-container">
-<div class="card mx-auto" style="max-width: 800px">
-<div class="user-wrapper">
-    <div class="text-center">
-      <img src=<%= @user.image %> class = "icon_image" alt="アイコン">
-    </div>
-      <p class="text-center">ニックネーム</p>
-      <div class="text-center"><%=@user.nickname%></div>
-    <% if current_user.id == @user.id %>
-      <p class="text-center">メールアドレス</p>
-      <div class="text-center"><%=@user.email%></div>
-    <% end %>
-      <p class="text-center">フォロー数: <%= @user.followings.count%>/フォロワー数: <%= @user.followers.count %></p>
-    <p class="text-center">プロフィール</p>
-      <div class="text-center"><%=@user.profile%></div>
-    <% if current_user.id == @user.id %>
+  <div class="card mx-auto" style="max-width: 800px">
+    <div class="user-wrapper">
       <div class="text-center">
-        <%= link_to "登録情報の更新",edit_user_registration_path, class: "btn   btn-outline-success" %>
+        <img src=<%= @user.image %> class = "icon_image" alt="アイコン">
       </div>
-    <% end %>
-   <%= render "dms/dm" %>
-   <%= render "followings/following" %>
-</div> 
-</div>
-
-
-
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page"><%= @user.nickname %>さんのページ</li>
-  </ol>
-</nav>
-
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
-    <li class="breadcrumb-item"><%=link_to '閲覧室', posts_index_path %></li>
-    <li class="breadcrumb-item active" aria-current="page"><%= @user.nickname %>さんのページ</li>
-  </ol>
-</nav>
-
-  
-
-<% if current_user.id == @user.id %>
-
-<h2 class="text-center">フォロー一覧</h2>
-<h5 class="text-center">フォロー数: <%= @user.followings.count %></h5>
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-3">
-      <% @followings.each do |following| %>
-        <div class="col"> 
-          <div class="text-center"> 
-            <img src=<%= following.image %> class = "card-img-icon" alt="アイコン">
-            <h5 class="text-center">
-              <%=link_to following.nickname, user_path(following.id),class:"nickname" %>
-            </h5>
-          </div>
-        </div> 
+        <p class="text-center">ニックネーム</p>
+        <div class="text-center"><%=@user.nickname%></div>
+      <% if current_user.id == @user.id %>
+        <p class="text-center">メールアドレス</p>
+        <div class="text-center"><%=@user.email%></div>
       <% end %>
-    </div>
-  </div>
-
-<%if @followings.length == 0%>
-  <div class="card mx-auto" style="max-width: 800px">
-    <%= link_to '#' do %>
-      <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
-    <% end %>
-    <div class="card-body">
-      <p class="text-center">たくさんフォローしよう</p>
-    </div>
-  </div>
-<% end %>
-
-<%= paginate @followings %>
-
-<% end %>
-
-<% if current_user.id == @user.id %>
-
-<h2 class="text-center">フォロワー一覧</h2>
-<h5 class="text-center">フォロワー数: <%= @user.followers.count %></h5>
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-3">
-      <% @followers.each do |follower| %>
-        <div class="col"> 
-          <div class="text-center"> 
-            <img src=<%= follower.image %> class = "card-img-icon" alt="アイコン">
-            <h5 class="text-center">
-              <%=link_to follower.nickname, user_path(follower.id),class:"nickname" %>
-            </h5>
-          </div>
-        </div> 
+        <p class="text-center">フォロー数: <%= @user.followings.count%>/フォロワー数: <%= @user.followers.count %></p>
+        <p class="text-center">プロフィール</p>
+        <div class="text-center"><%=@user.profile%></div>
+      <% if current_user.id == @user.id %>
+        <div class="text-center">
+          <%= link_to "登録情報の更新",edit_user_registration_path, class: "btn   btn-outline-success" %>
+        </div>
       <% end %>
-    </div>
+      <%= render "dms/dm" %>
+      <%= render "followings/following" %>
+    </div> 
   </div>
 
-<%if @followers.length == 0%>
-  <div class="card mx-auto" style="max-width: 800px">
-    <%= link_to '#' do %>
-      <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
-    <% end %>
-    <div class="card-body">
-      <p class="text-center">たくさんフォローされよう</p>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page"><%= @user.nickname %>さんのページ</li>
+    </ol>
+  </nav>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
+      <li class="breadcrumb-item"><%=link_to '閲覧室', posts_index_path %></li>
+      <li class="breadcrumb-item active" aria-current="page"><%= @user.nickname %>さんのページ</li>
+    </ol>
+  </nav>
+
+  <% if current_user.id == @user.id %>
+    <h2 class="text-center">フォロー一覧</h2>
+      <h5 class="text-center">フォロー数: <%= @user.followings.count %></h5>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3">
+          <% @followings.each do |following| %>
+            <div class="col"> 
+              <div class="text-center"> 
+                <img src=<%= following.image %> class = "card-img-icon" alt="アイコン">
+                <h5 class="text-center">
+                  <%=link_to following.nickname, user_path(following.id),class:"nickname" %>
+                </h5>
+              </div>
+            </div> 
+          <% end %>
+        </div>
+      </div>
+
+  <%if @followings.length == 0%>
+    <div class="card mx-auto" style="max-width: 800px">
+      <%= link_to '#' do %>
+        <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
+      <% end %>
+      <div class="card-body">
+        <p class="text-center">たくさんフォローしよう</p>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
-<%= paginate @followers %>
+  <%= paginate @followings %>
 
-<% end %>
+  <% end %>
+
+  <% if current_user.id == @user.id %>  
+    <h2 class="text-center">フォロワー一覧</h2>
+      <h5 class="text-center">フォロワー数: <%= @user.followers.count %></h5>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3">
+          <% @followers.each do |follower| %>
+            <div class="col"> 
+              <div class="text-center"> 
+                <img src=<%= follower.image %> class = "card-img-icon" alt="アイコン">
+                <h5 class="text-center">
+                  <%=link_to follower.nickname, user_path(follower.id),class:"nickname" %>
+                </h5>
+              </div>
+           </div> 
+          <% end %>
+        </div>
+      </div>
+
+  <%if @followers.length == 0%>
+    <div class="card mx-auto" style="max-width: 600px">
+      <%= link_to '#' do %>
+        <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
+      <% end %>
+      <div class="card-body">
+        <p class="text-center">たくさんフォローされよう</p>
+      </div>
+    </div>
+  <% end %>
+
+  <%= paginate @followers %>
+
+  <% end %>
 
 <h2 class="text-center"><%= @user.nickname %>さんの投稿</h2>
 
@@ -116,7 +110,6 @@
 <%= render "layouts/like_card" %>
 
 <%= render "layouts/favorite_card" %>
-
 
 </div>
 

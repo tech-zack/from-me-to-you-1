@@ -2,46 +2,47 @@
 <%= render "users/shared/error_messages", resource: resource %>
 
 <div class="signup-wrapper">
-<h2 class="text-center">ようこそ</h2>
-<div class="card mx-auto" style="max-width: 400px">
-  <div class="card-body">
-  <h2 class="text-center">新規登録 </h2>
-    <div class="text-center">
-      <label for="exampleFormControlInput1" class="form-label">アイコン</label>
-      <div class="field">
-        <%= f.file_field :image, class:"form-control", required: true %>
+  <h2 class="text-center">ようこそ</h2>
+    <div class="card mx-auto" style="max-width: 400px">
+      <div class="card-body">
+        <h2 class="text-center">新規登録 </h2>
+        <div class="text-center">
+          <label for="exampleFormControlInput1" class="form-label">アイコン</label>
+          <div class="field">
+            <%= f.file_field :image, class:"form-control", required: true %>
+          </div>
+        </div>
+        <div class="text-center">
+          <label for="exampleFormControlInput1" class="form-label">ニックネーム</label>
+          <div class="field">
+            <%= f.text_field :nickname, class:"form-control", id: "nickname", placeholder:"例) 山田太郎", maxlength:"40", required: true %>
+          </div>
+        </div>
+        <div class="text-center">
+          <label for="exampleFormControlInput1" class="form-label">Eメール</label>
+          <div class="field">
+            <%= f.email_field :email, class:"form-control", id:"email", placeholder:"PC・携帯どちらでも可",autofocus: true, required: true%>
+          </div>
+        </div>
+        <div class="text-center">
+          <label for="exampleFormControlInput1" class="form-label">パスワード</label>
+          <div class="field">
+            <%= f.password_field :password, class:"form-control", id:"password", placeholder:"6文字以上", required: true %>
+          </div>
+        </div>
+        <div class="text-center">
+          <label for="exampleFormControlInput1" class="form-label">同じパスワード</label>
+          <div class="field">
+            <%= f.password_field :password_confirmation, class:"form-control", id:"password-confirmation", placeholder:"同じパスワードを入力してください。", required: true %>
+          </div>
+        </div>
+        <div class="text-center">
+          <%= f.submit "新規登録" ,class:"btn btn-outline-success"%>
+        </div>
       </div>
     </div>
-    <div class="text-center">
-      <label for="exampleFormControlInput1" class="form-label">ニックネーム</label>
-      <div class="field">
-        <%= f.text_field :nickname, class:"form-control", id: "nickname", placeholder:"例) 山田太郎", maxlength:"40", required: true %>
-      </div>
-    </div>
-    <div class="text-center">
-      <label for="exampleFormControlInput1" class="form-label">Eメール</label>
-      <div class="field">
-        <%= f.email_field :email, class:"form-control", id:"email", placeholder:"PC・携帯どちらでも可",autofocus: true, required: true%>
-      </div>
-    </div>
-    <div class="text-center">
-      <label for="exampleFormControlInput1" class="form-label">パスワード</label>
-      <div class="field">
-        <%= f.password_field :password, class:"form-control", id:"password", placeholder:"6文字以上", required: true %>
-      </div>
-    </div>
-    <div class="text-center">
-      <label for="exampleFormControlInput1" class="form-label">同じパスワード</label>
-      <div class="field">
-        <%= f.password_field :password_confirmation, class:"form-control", id:"password-confirmation", placeholder:"同じパスワードを入力してください。", required: true %>
-      </div>
-    </div>
-    <div class="text-center">
-      <%= f.submit "新規登録" ,class:"btn btn-outline-success"%>
-    </div>
-  </div>
 </div>
-</div>
+
 <%end%>
 
 

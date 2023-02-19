@@ -13,7 +13,7 @@
                 <h5 class="text-center"><%= favorite.post.text.truncate(20) %></h5>
                 <div class="text-center">
                   <p class="text-center"><img src=<%=favorite.post.user.image %> class = "comment_icon" alt="アイコン"><%=favorite.post.user.nickname%></p>
-                  <p class="text-center">いいね♥<%= favorite.post.likes.count%></p>
+                  <p class="text-center">いいね♥<%= favorite.post.likes.count%>/コメント💬<%= favorite.post.comments.count%></p>
                   <%=link_to '続きを読む', post_path(favorite.post_id), class: "btn btn-outline-success"%>
                 </div>
               </div>
@@ -24,9 +24,9 @@
     </div>
 
 <%if @favorites.length == 0%>
-  <div class="card mx-auto" style="max-width: 800px">
+  <div class="card mx-auto" style="max-width: 600px">
     <%= link_to '#' do %>
-      <%= image_tag "/audience_penlight.png", class: "card-img-top" %>
+      <%= image_tag "/present_koukan_couple.png", class: "card-img-top" %>
     <% end %>
     <div class="card-body">
       <p class="text-center">あなたのお気に入りを見つけよう</p>

@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "favorite_btn" do %>
-<div class="like-wrapper">
+<div class="favorite-wrapper">
   <div class="text-center">
     <% if user_signed_in? && current_user != @post.user %>
       <% if current_user.favorite_find(@post.id) %>

@@ -1,37 +1,39 @@
 <%= form_with(model: @post, local: true) do |f| %>
 
 <div class="text-wrapper">
-<h2 class="text-center">思いを届けよう</h2>
-<div class="card mx-auto" style="max-width: 400px">
-  <div class="card-body">
-    <div class="text-center">
-      <label for="exampleFormControlInput1" class="form-label">画像</label>
-      <div class="field">
-        <%= f.file_field :image, class:"form-control", id:"posts-image" %>
+  <h2 class="text-center">思いを届けよう</h2>
+    <div class="card mx-auto" style="max-width: 400px">
+      <div class="card-body">
+        <div class="text-center">
+          <label for="exampleFormControlInput1" class="form-label">画像</label>
+          <div class="field">
+            <%= f.file_field :image, class:"form-control", id:"posts-image" %>
+          </div>
+        </div>
+        <div class="text-center">
+          <label for="exampleFormControlInput1" class="form-label">題名</label>
+          <div class="field">
+            <%= f.text_area :title, class:"form-control", id:"post-name", placeholder:"タイトル（必須 50字まで)", maxlength:"50" %>
+          </div>
+        </div>
+        <div class="text-center">
+          <label for="exampleFormControlInput1" class="form-label">カテゴリー</label>
+          <div class="field">
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"form-control"}) %>
+          </div>
+        </div>
+        <div class="text-center">
+          <label for="exampleFormControlInput1" class="form-label">文章</label>
+          <div class="field">
+            <%= f.text_area :text, class:"form-control", id:"post-text", placeholder:"タイトル内容（必須 1,000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <%= f.submit "変更する" ,class:"btn btn-outline-success" %>
+          <%= link_to '戻る', root_path, class:"btn btn-outline-success" %>
+        </div>
       </div>
     </div>
-    <div class="text-center">
-      <label for="exampleFormControlInput1" class="form-label">題名</label>
-      <div class="field">
-        <%= f.text_area :title, class:"form-control", id:"post-name", placeholder:"タイトル（必須 50字まで)", maxlength:"50" %>
-      </div>
-    </div>
-    <div class="text-center">
-      <label for="exampleFormControlInput1" class="form-label">カテゴリー</label>
-      <div class="field">
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"form-control"}) %>
-      </div>
-    <div class="text-center">
-      <label for="exampleFormControlInput1" class="form-label">文章</label>
-      <div class="field">
-        <%= f.text_area :text, class:"form-control", id:"post-text", placeholder:"タイトル内容（必須 1,000文字まで)" ,rows:"7" ,maxlength:"1000" %>
-      </div>
-    </div>
-    <div class="d-grid gap-2 col-6 mx-auto">
-      <%= f.submit "変更する" ,class:"btn btn-outline-success" %>
-      <%= link_to '戻る', root_path, class:"btn btn-outline-success" %>
-    </div>
-  </div>
 </div>
-</div>
+
 <% end %>

@@ -681,8 +681,26 @@ textarea,
   background-attachment: fixed;
 }
 
+/* いいね機能ボタン幅調整 */
 .like-wrapper {
-  /* background-color:#F4F5F7; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* DM機能ボタン幅調整 */
+.dm-wrapper {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* お気に入り機能ボタン幅調整 */
+.favorite-wrapper {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* フォロー機能ボタン幅調整 */
+.following-wrapper {
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -722,7 +740,6 @@ li {
 .card-img-user {
   height: 300px;
   object-fit: contain;
-  /* border: 1px solid #808080; */
   border: outset 10px rgb(100, 38, 38);
   background-color:#272727;
   padding: 10px;
@@ -733,7 +750,6 @@ li {
   height: 450px;
   object-fit: contain;
   border: outset 10px rgb(100, 38, 38);
-  /* border: 1px solid #808080;  */
   background-color:#272727;
   padding: 10px;
 }

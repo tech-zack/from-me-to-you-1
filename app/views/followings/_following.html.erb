@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "following_btn" do %>
 
 <% if current_user.id != @user.id %>
-  <div class="like-wrapper">
+  <div class="following-wrapper">
     <div class="text-center">
       <% if current_user.following?(@user) %>
         <%= link_to "フォロー外す", user_relationships_path(@user.id), data: { turbo_method: :delete },class:"like-btn btn-outline-success" %>

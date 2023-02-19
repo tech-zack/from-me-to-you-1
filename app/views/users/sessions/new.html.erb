@@ -1,27 +1,28 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %> 
 
 <div class="login-wrapper">
-<h2 class="text-center">おかえりなさい</h2>
-<div class="card mx-auto" style="max-width: 400px">
-  <div class="card-body">
-  <h2 class="text-center">ログイン</h2>
-    <div class="text-center">
-      <label for="exampleFormControlInput1" class="form-label">Eメール</label>
-      <div class="field">
-        <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email", required: true %>
+  <h2 class="text-center">おかえりなさい</h2>
+    <div class="card mx-auto" style="max-width: 400px">
+      <div class="card-body">
+        <h2 class="text-center">ログイン</h2>
+          <div class="text-center">
+            <label for="exampleFormControlInput1" class="form-label">Eメール</label>
+              <div class="field">
+                <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email", required: true %>
+              </div>
+          </div>
+          <div class="text-center">
+            <label for="exampleFormControlInput1" class="form-label">パスワード</label>
+            <div class="field">
+              <%= f.password_field :password, class:"form-control", autocomplete: "current-password", required: true %>
+            </div>
+          </div>
+          <div class="text-center">
+            <%= f.submit "ログイン" ,class:"btn btn-outline-success"%>
+          </div>
       </div>
-    </div>
-    <div class="text-center">
-      <label for="exampleFormControlInput1" class="form-label">パスワード</label>
-      <div class="field">
-        <%= f.password_field :password, class:"form-control", autocomplete: "current-password", required: true %>
-      </div>
-    </div>
-    <div class="text-center">
-      <%= f.submit "ログイン" ,class:"btn btn-outline-success"%>
-    </div>
-  </div>
-</div> 
+    </div> 
 </div>
+
 <%end%>
 
