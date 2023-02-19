@@ -25,16 +25,16 @@ RSpec.describe Post, type: :model do
         @post.image = nil
         @post.valid?
         expect(@post.errors.full_messages).to include "Image can't be blank"
-        it 'category_idが空では保存できないこと' do
-          @post.category_id = nil
-          @post.valid?
-          expect(@post.errors.full_messages).to include("Category is not a number")
-        end
-        it 'category_idが1では保存できないこと' do
-          @post.category_id = 1
-          @post.valid?
-          expect(@post.errors.full_messages).to include("Category must be other than 1")
-        end
+      end
+      it 'category_idが空では保存できないこと' do
+        @post.category_id = nil
+        @post.valid?
+        expect(@post.errors.full_messages).to include("Category is not a number")
+      end
+      it 'category_idが1では保存できないこと' do
+        @post.category_id = 1
+        @post.valid?
+        expect(@post.errors.full_messages).to include("Category must be other than 1")
       end
     end
   end
