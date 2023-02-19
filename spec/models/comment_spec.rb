@@ -1,7 +1,9 @@
 require 'rails_helper'
 RSpec.describe Comment, type: :model do
   before do
-    @comment = FactoryBot.build(:comment)
+    user = FactoryBot.create(:user)
+    post = FactoryBot.create(:post)
+    @comment = FactoryBot.build(:comment, user_id: user.id, post_id: post.id)
   end
 
   describe 'コメント' do
@@ -15,6 +17,16 @@ RSpec.describe Comment, type: :model do
         @comment.comment = ' '
         @comment.valid?
         expect( @comment.errors.full_messages).to include "Comment can't be blank"
+      end
+      it 'user_idが空ではコメントできない' do
+        @comment.user_id = nil
+        @comment.valid?
+        expect(@comment.errors[:user_id]).to include("can't be blank")
+      end
+      it 'post_idが空ではコメントできない' do
+        @comment.post_id = nil
+        @comment.valid?
+        expect(@comment.errors[:post_id]).to include("can't be blank")
       end
     end
   end
