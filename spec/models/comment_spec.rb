@@ -4,6 +4,7 @@ RSpec.describe Comment, type: :model do
     user = FactoryBot.create(:user)
     post = FactoryBot.create(:post)
     @comment = FactoryBot.build(:comment, user_id: user.id, post_id: post.id)
+    sleep 0.1
   end
 
   describe 'コメント' do

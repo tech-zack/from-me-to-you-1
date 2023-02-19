@@ -1,7 +1,9 @@
 require 'rails_helper'
 RSpec.describe Like, type: :model do
   before do
-    @like = FactoryBot.build(:like)
+    user = FactoryBot.create(:user)
+    post = FactoryBot.create(:post)
+    @like = FactoryBot.build(:like, user_id: user.id, post_id: post.id)
   end
 
   describe 'いいね機能' do

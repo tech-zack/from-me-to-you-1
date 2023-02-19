@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
 
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
-      it 'nickname,email,password,password_confirmationがあると登録できる' do
+      it 'nickname,email,password,password_confirmation,imageがあると登録できる' do
          expect(@user).to be_valid
       end
     end
@@ -40,7 +40,12 @@ RSpec.describe User, type: :model do
         @user.password = '11111'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
-      end 
+      end
+      it 'imageが空では登録できない' do
+        @user.image = nil
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Image can't be blank"
+      end
     end
   end
 end
