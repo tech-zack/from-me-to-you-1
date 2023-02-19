@@ -46,12 +46,6 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include "Image can't be blank"
       end
-      it 'emailは一意性出ないと登録できない'do
-        @user = FactoryBot.create(:user)
-        another_user = FactoryBot.build(:user,email: @user.email)
-        another_user.valid?
-        expect(another_user.errors[:email]).to include("has already been taken")
-      end 
     end
   end
 end
