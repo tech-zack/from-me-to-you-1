@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "comment_btn" do %>
 
 <% if user_signed_in? %>
-  <h5 class="text-center">メッセージを届ける</h5>
+  <h5 class="text-center">コメントを届ける</h5>
     <div class="mx-auto" style="max-width: 650px">
       <%= form_with model:[@post,@comment] do |f| %>
         <div class="text-center">
@@ -14,7 +14,7 @@
     </div>
 <% end %>
 
-<h5 class="text-center">メッセージ</h5>
+<h5 class="text-center">コメント</h5>
   <div class="card mx-auto" style="max-width: 650px">
     <% @post.comments.each do |comment| %>
       <div class="text-center">
