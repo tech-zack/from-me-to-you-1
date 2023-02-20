@@ -13,7 +13,7 @@
                 <h5 class="text-center"><%= favorite.post.text.truncate(20) %></h5>
                 <div class="text-center">
                   <p class="text-center"><img src=<%=favorite.post.user.image %> class = "comment_icon" alt="アイコン"><%=favorite.post.user.nickname%></p>
-                  <p class="text-center">いいね♥<%= favorite.post.likes.count%>/コメント💬<%= favorite.post.comments.count%></p>
+                  <p class="text-center">いいね❤️<%= favorite.post.likes.count%>/コメント💬<%= favorite.post.comments.count%></p>
                   <%=link_to '続きを読む', post_path(favorite.post_id), class: "btn btn-outline-success"%>
                 </div>
               </div>
