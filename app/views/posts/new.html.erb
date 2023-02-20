@@ -7,13 +7,13 @@
         <div class="text-center">
           <label for="exampleFormControlInput1" class="form-label">画像</label>
           <div class="field">
-            <%= f.file_field :image, class:"form-control", id:"posts-image" %>
+            <%= f.file_field :image, required: true, class:"form-control", id:"posts-image" %>
           </div>
         </div>
         <div class="text-center">
           <label for="exampleFormControlInput1" class="form-label">題名</label>
           <div class="field">
-            <%= f.text_area :title, class:"form-control", id:"post-name", placeholder:"タイトル（必須 50字まで)", maxlength:"50" %>
+            <%= f.text_area :title, required: true, class:"form-control", id:"post-name", placeholder:"タイトル（必須 50字まで)", maxlength:"50" %>
           </div>
         </div>
         <div class="text-center">
@@ -25,7 +25,7 @@
         <div class="text-center">
           <label for="exampleFormControlInput1" class="form-label">文章</label>
           <div class="field">
-            <%= f.text_area :text, class:"form-control", id:"post-text", placeholder:"タイトル内容（必須 1,000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+            <%= f.text_area :text, required: true, class:"form-control", id:"post-text", placeholder:"タイトル内容（必須 1,000文字まで)" ,rows:"7" ,maxlength:"1000" %>
           </div>
         </div>
         <div class="d-grid gap-2 col-6 mx-auto">

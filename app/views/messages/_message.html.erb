@@ -28,7 +28,7 @@
 <div class="mx-auto" style="max-width: 400px">
   <%= form_with model: @message, local: true do |f| %>
     <div class="text-center">
-      <%= f.text_field :message, placeholder: "メッセージを入力してください",class: "form-control" %>
+      <%= f.text_field :message, placeholder: "メッセージを入力してください", required: true, class: "form-control" %>
     </div>
     <div class="text-center">
       <%= f.hidden_field :room_id, value: @room.id %>
