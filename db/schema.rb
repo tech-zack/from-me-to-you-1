@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_07_093815) do
   create_table "comments", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
-    t.text "comment"
+    t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
@@ -59,7 +59,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_07_093815) do
   end
 
   create_table "libraries", charset: "utf8", force: :cascade do |t|
-    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,7 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_07_093815) do
   create_table "messages", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "room_id", null: false
-    t.text "message"
+    t.text "message", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_messages_on_room_id"
