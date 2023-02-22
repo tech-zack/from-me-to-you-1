@@ -4,7 +4,7 @@
   <%= link_to('本日のあなたへの1枚', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-outline-success btn-lg")  %>
 </h2>
 
-<div class="card mx-auto" style="max-width: 800px">   
+<div class="card mx-auto" style="max-width: 600px">   
   <% @random.each do |post| %>
     <%= image_tag post.image, class: "card-img-user"%>
       <div class="card-body">
