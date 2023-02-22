@@ -52,7 +52,6 @@
 
 | Column      | Type          | Options             |
 | ----------- | ------------- | ------------------- |  
-| text        | content       |                     |
 
 ### Association
 
@@ -79,7 +78,7 @@
 
 | Column        | Type        | Options           |
 | ------------- | ----------- | ----------------- |
-| text          | comment     |                   |
+| text          | comment     | NOT NULL                 |
 | user_id       | references  | foreigen_key:true |
 | post_id       | references  | foreigen_key:true |
 
@@ -92,7 +91,7 @@
 
 | Column        | Type        | Options           |
 | ------------- | ----------- | ----------------- |
-| text          | message     |                   |
+| text          | message     | NOT NULL                 |
 | user_id       | references  | foreigen_key:true |
 | room_id       | references  | foreigen_key:true |
 

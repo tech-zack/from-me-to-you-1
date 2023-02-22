@@ -2,6 +2,7 @@ require 'rails_helper'
 RSpec.describe "ユーザー新規登録", type: :system do
   before do
     @user = FactoryBot.build(:user)
+    sleep 0.1
   end
   context 'ユーザー新規登録ができるとき' do
     it '正しい情報を入力すればユーザー新規登録ができてトップページに移動する' do
@@ -17,7 +18,7 @@ RSpec.describe "ユーザー新規登録", type: :system do
       fill_in 'email', with: @user.email
       fill_in 'password', with: @user.password
       fill_in 'user[password_confirmation]', with: @user.password_confirmation
-      #トップページへ遷移する
+      #新規登録を実施する
       click_on("新規登録")
     end
   end
@@ -35,8 +36,10 @@ RSpec.describe "ユーザー新規登録", type: :system do
       fill_in 'email', with: ''
       fill_in 'password', with: ''
       fill_in 'user[password_confirmation]', with: ''
+      #モデルのカウントが変化しない
+      expect{find('input[name = "commit"]').click}.to change{User.count}.by(0)
       #新規登録ページへ戻されることを確認する
-      click_on("新規登録")
+      expect(current_path).to eq('/users/sign_up')
     end
   end 
 end
