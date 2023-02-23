@@ -78,7 +78,7 @@
 
 | Column        | Type        | Options           |
 | ------------- | ----------- | ----------------- |
-| text          | comment     | NOT NULL                 |
+| comment       | text        | NOT NULL          |
 | user_id       | references  | foreigen_key:true |
 | post_id       | references  | foreigen_key:true |
 
@@ -91,7 +91,7 @@
 
 | Column        | Type        | Options           |
 | ------------- | ----------- | ----------------- |
-| text          | message     | NOT NULL                 |
+| message       | text        | NOT NULL          |
 | user_id       | references  | foreigen_key:true |
 | room_id       | references  | foreigen_key:true |
 
