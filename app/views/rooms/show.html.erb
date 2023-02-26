@@ -2,19 +2,7 @@
 
   <div class="chat-room">
 
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">メッセージ</li>
-      </ol>
-    </nav>
-
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
-        <li class="breadcrumb-item"><%= link_to "#{current_user.nickname}さんのページ",user_path(current_user.id)%></li>
-        <li class="breadcrumb-item active" aria-current="page">閲覧室</li>
-      </ol>
-    </nav>
+   <%= render "layouts/page_room" %> 
 
     <h1 class="text-center">メッセージ</h1>
       <% @RoomUsers.each do |room| %> 

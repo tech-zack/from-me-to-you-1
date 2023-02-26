@@ -23,19 +23,7 @@
     </div> 
   </div>
 
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page"><%= @user.nickname %>さんのページ</li>
-    </ol>
-  </nav>
-
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
-      <li class="breadcrumb-item"><%=link_to '閲覧室', posts_index_path %></li>
-      <li class="breadcrumb-item active" aria-current="page"><%= @user.nickname %>さんのページ</li>
-    </ol>
-  </nav>
+  <%= render "layouts/page_user" %>
 
   <% if current_user.id == @user.id %>
     <h2 class="text-center">フォロー一覧</h2>

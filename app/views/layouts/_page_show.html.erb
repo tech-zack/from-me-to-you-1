@@ -1,0 +1,17 @@
+<%= turbo_frame_tag "page_show" do %>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">投稿</li>
+  </ol>
+</nav>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=link_to '閲覧室', posts_index_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">投稿</li>
+  </ol>
+</nav>
+
+<% end %>

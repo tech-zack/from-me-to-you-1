@@ -1,25 +1,11 @@
 <img src="/ogasuta458A8658.jpg" class="d-block w-100" height=300 alt="閲覧室">
 <div class="search-wrapper">
 
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">検索結果</li>
-  </ol>
-</nav>
-
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
-    <li class="breadcrumb-item active" aria-current="page"><%=link_to '閲覧室', posts_index_path %></li>
-    <li class="breadcrumb-item active" aria-current="page">検索結果</li>
-  </ol>
-</nav>
+<%= render "layouts/page_search" %>
 
 <h2 class="text-center">検索結果</h2>
   <%= render "searches/search_card" %>
-  <div class="text-center">
-      <%=link_to '戻る', posts_path, class: "btn btn-outline-success btn-lg"%>
-  </div>
+  <%= render "layouts/return_btn" %>
 </div>
 
 <%= render "layouts/footer" %>
