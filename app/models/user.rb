@@ -32,5 +32,6 @@ class User < ApplicationRecord
   end
   has_many :room_users, dependent: :destroy
   has_many :messages, dependent: :destroy
+
 end
 

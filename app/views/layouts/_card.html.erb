@@ -11,7 +11,7 @@
               <h5 class="text-center"><%= post.text.truncate(20) %></h5>
               <div class="text-center">
                 <p class="text-center"><img src=<%=post.user.image %> class = "comment_icon" alt="アイコン"><%=post.user.nickname %></p>
-                <p class="text-center">いいね❤️<%= post.likes.count%>/コメント💬<%= post.comments.count%></p>
+                <p class="text-center">いいね❤️<%= post.likes.count%>/お気に入り🎁<%= post.favorites.count%>/コメント💬<%= post.comments.count%></p>
                 <%=link_to '続きを読む', post_path(post.id), class: "btn btn-outline-success"%>
               </div>
             </div>
