@@ -1,3 +1,4 @@
+<%= turbo_frame_tag "post_on" do %>
 <%= form_with(model: @post, local: true) do |f| %>
 
 <div class="text-wrapper">
@@ -25,15 +26,16 @@
         <div class="text-center">
           <label for="exampleFormControlInput1" class="form-label">文章</label>
           <div class="field">
-            <%= f.text_area :text, required: true, class:"form-control", id:"post-text", placeholder:"タイトル内容（必須 1,000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+            <%= f.text_area :text, required: true, class:"form-control",id:"post-text", placeholder:"タイトル内容（必須 1,000文字まで)" ,rows:"7" ,maxlength:"1000" %>
           </div>
         </div>
         <div class="d-grid gap-2 col-6 mx-auto">
-          <%= f.submit "届ける" ,class:"btn btn-outline-success" %>
-          <%= link_to '戻る', root_path, class:"btn btn-outline-success" %>
+          <%= f.submit "届ける" ,class:"btn btn-outline-success", data: { turbo_frame: 'post_on' }  %>
+          <%= link_to '戻る', root_path, class:"btn btn-outline-success", data: { turbo_frame: 'post_on' }  %>
         </div>
       </div>
     </div>
 </div>
 
+<% end %>
 <% end %>

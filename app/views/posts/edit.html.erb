@@ -1,3 +1,4 @@
+<%= turbo_frame_tag "post_edit" do %>
 <%= form_with(model: @post, local: true) do |f| %>
 
 <div class="text-wrapper">
@@ -29,11 +30,12 @@
           </div>
         </div>
         <div class="d-grid gap-2 col-6 mx-auto">
-          <%= f.submit "変更する" ,class:"btn btn-outline-success" %>
-          <%= link_to '戻る', root_path, class:"btn btn-outline-success" %>
+          <%= f.submit "変更する" ,class:"btn btn-outline-success", data: { turbo_frame: 'post_edit' }  %>
+          <%= link_to '戻る', root_path, class:"btn btn-outline-success", data: { turbo_frame: 'post_edit' }  %>
         </div>
       </div>
     </div>
 </div>
 
+<% end %>
 <% end %>

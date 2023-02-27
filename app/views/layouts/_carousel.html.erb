@@ -1,3 +1,4 @@
+<%= turbo_frame_tag "carousel" do %>
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -5,7 +6,7 @@
       <div class="carousel-caption d-none d-md-block">
         <h5>思い出</h5>
         <p>大切な人に大好きな思いでを届けよう</p>
-        <%=link_to '届ける', new_post_path, class: "btn btn-outline-success"%>
+        <%=link_to '届ける', new_post_path, class: "btn btn-outline-success", data: { turbo_frame: 'carousel' }%>
       </div>
     </div>
     <div class="carousel-item">
@@ -13,7 +14,7 @@
       <div class="carousel-caption d-none d-md-block">
         <h5>景色</h5>
         <p>大切な人に大好きな景色を届けよう</p>
-        <%=link_to '届ける', new_post_path, class: "btn btn-outline-success"%>
+        <%=link_to '届ける', new_post_path, class: "btn btn-outline-success", data: { turbo_frame: 'carousel' }%>
       </div>
     </div>
     <div class="carousel-item">
@@ -21,7 +22,7 @@
       <div class="carousel-caption d-none d-md-block">
         <h5>宝物</h5>
         <p>大切な人に宝物を届けよう</p>
-        <%=link_to '届ける', new_post_path, class: "btn btn-outline-success"%>
+        <%=link_to '届ける', new_post_path, class: "btn btn-outline-success", data: { turbo_frame: 'carousel' }%>
       </div>
     </div>
     <div class="carousel-item">
@@ -29,7 +30,7 @@
       <div class="carousel-caption d-none d-md-block">
         <h5>言葉</h5>
         <p>大切な人に言葉を届けよう</p>
-        <%=link_to '届ける', new_post_path, class: "btn btn-outline-success"%>
+        <%=link_to '届ける', new_post_path, class: "btn btn-outline-success", data: { turbo_frame: 'carousel' }%>
       </div>
     </div>
     <div class="carousel-item">
@@ -37,7 +38,7 @@
       <div class="carousel-caption d-none d-md-block">
         <h5>雑学</h5>
         <p>自分の知っている知識を教えちゃおう</p>
-        <%=link_to '届ける', new_post_path, class: "btn btn-outline-success"%>
+        <%=link_to '届ける', new_post_path, class: "btn btn-outline-success", data: { turbo_frame: 'carousel' }%>
       </div>
     </div>
   </div>
@@ -50,3 +51,4 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+<% end %>

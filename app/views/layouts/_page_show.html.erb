@@ -8,9 +8,16 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
+  <% if user_signed_in?%>
     <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
     <li class="breadcrumb-item active" aria-current="page"><%=link_to '閲覧室', posts_index_path %></li>
+    <li class="breadcrumb-item"><%= link_to "#{current_user.nickname}さんのページ",user_path(current_user.id)%></li>
     <li class="breadcrumb-item active" aria-current="page">投稿</li>
+   <% else %>
+   <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=link_to '閲覧室', posts_index_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">投稿</li>
+   <% end %>
   </ol>
 </nav>
 

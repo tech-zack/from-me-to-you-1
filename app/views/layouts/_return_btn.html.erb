@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "return_btn" do %>
 
 <div class="text-center">
-  <%=link_to '戻る', posts_path, class: "btn btn-outline-success btn-lg"%>
+  <%=link_to '戻る', posts_path, class: "btn btn-outline-success btn-lg", data: { turbo_frame: 'return_btn' }%>
 </div>
 
 <% end %>

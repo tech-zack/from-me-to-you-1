@@ -1,0 +1,6 @@
+<%= turbo_frame_tag "post_edit_btn" do %>
+
+<%= link_to "編集", edit_post_path(@post.id),class:"btn btn-outline-success btn-lg", data: { turbo_frame: 'post_edit_btn' } %>
+<%= link_to "削除", post_path(@post.id), data: { turbo_method: :delete } ,class:"btn btn-outline-danger btn-lg" %>
+
+<% end %>

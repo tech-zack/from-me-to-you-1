@@ -1,3 +1,4 @@
+<%= turbo_frame_tag "user_show" do %>
 <div class="user-container">
   <div class="card mx-auto" style="max-width: 800px">
     <div class="user-wrapper">
@@ -15,7 +16,7 @@
         <div class="text-center"><%=@user.profile%></div>
       <% if current_user.id == @user.id %>
         <div class="text-center">
-          <%= link_to "登録情報の更新",edit_user_registration_path, class: "btn   btn-outline-success" %>
+          <%= link_to "登録情報の更新",edit_user_registration_path, class: "btn   btn-outline-success", data: { turbo_frame: 'user_show' }  %>
         </div>
       <% end %>
       <%= render "dms/dm" %>
@@ -35,7 +36,7 @@
               <div class="text-center"> 
                 <img src=<%= following.image %> class = "card-img-icon" alt="アイコン">
                 <h5 class="text-center">
-                  <%=link_to following.nickname, user_path(following.id),class:"nickname" %>
+                  <%=link_to following.nickname, user_path(following.id),class:"nickname", data: { turbo_frame: 'user_show' }  %>
                 </h5>
               </div>
             </div> 
@@ -68,7 +69,7 @@
               <div class="text-center"> 
                 <img src=<%= follower.image %> class = "card-img-icon" alt="アイコン">
                 <h5 class="text-center">
-                  <%=link_to follower.nickname, user_path(follower.id),class:"nickname" %>
+                  <%=link_to follower.nickname, user_path(follower.id),class:"nickname", data: { turbo_frame: 'user_edit' }  %>
                 </h5>
               </div>
            </div> 
@@ -100,6 +101,7 @@
 <%= render "layouts/favorite_card" %>
 
 </div>
+<% end %>
 
 <%= render "layouts/footer" %>
 

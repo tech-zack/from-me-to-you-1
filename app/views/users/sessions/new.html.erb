@@ -1,3 +1,4 @@
+<%= turbo_frame_tag "user_login" do %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %> 
 
 <div class="login-wrapper">
@@ -18,11 +19,12 @@
             </div>
           </div>
           <div class="text-center">
-            <%= f.submit "ログイン" ,class:"btn btn-outline-success"%>
+            <%= f.submit "ログイン" ,class:"btn btn-outline-success", data: { turbo_frame: 'user_login' }%>
           </div>
       </div>
     </div> 
 </div>
 
+<%end%>
 <%end%>
 

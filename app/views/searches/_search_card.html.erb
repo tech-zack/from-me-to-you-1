@@ -12,7 +12,7 @@
             <div class="text-center">
               <p class="text-center"><img src=<%=result.user.image %> class = "comment_icon" alt="アイコン"><%=result.user.nickname %></p>
               <p class="text-center">いいね♥<%= result.likes.count%></p>
-              <%=link_to '続きを読む', post_path(result.id), class: "btn btn-outline-success"%>
+              <%=link_to '続きを読む', post_path(result.id), class: "btn btn-outline-success", data: { turbo_frame: 'search_card_btn' }%>
             </div>
           </div>
         </div>

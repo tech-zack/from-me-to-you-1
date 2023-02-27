@@ -32,10 +32,10 @@
     </div>
     <div class="text-center">
       <%= f.hidden_field :room_id, value: @room.id %>
-      <%= f.submit "送信する",class:"btn btn-outline-success" %>
+      <%= f.submit "送信する",class:"btn btn-outline-success", data: { turbo_frame: 'message_btn' } %>
     </div>
     <div class="text-center">
-      <%=link_to '戻る', posts_path, class: "btn btn-outline-success"%>
+      <%=link_to '戻る', posts_path, class: "btn btn-outline-success", data: { turbo_frame: 'message_btn' }%>
     </div>
   <% end %>
 </div>
