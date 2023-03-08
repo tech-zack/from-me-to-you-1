@@ -85,7 +85,7 @@
 <hr>
 
 <h2 class="text-center">
-  <%= link_to('本日のあなたへの1枚', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-outline-success btn-lg")  %>
+  <%= link_to('今日のあなたへ', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-outline-success btn-lg", data: { turbo_frame: 'post' })  %>
 </h2>
 
 <div class="card mx-auto" style="max-width: 600px">   
@@ -97,7 +97,7 @@
         <div class="text-center">
           <p class="text-center"><img src=<%=post.user.image %> class = "comment_icon" alt="アイコン"><%=post.user.nickname %></p>
           <p class="text-center">いいね❤️<%= post.likes.count%>/お気に入り🎁<%= post.favorites.count%>/コメント💬<%= post.comments.count%></p>
-          <%=link_to 'あなたへの1枚を読む', post_path(post.id), class: "btn btn-outline-success btn-lg", data: { turbo_frame: 'post' }%>
+          <%=link_to '閲覧する', post_path(post.id), class: "btn btn-outline-success btn-lg", data: { turbo_frame: 'post' }%>
         </div>
       </div>
   <% end %>

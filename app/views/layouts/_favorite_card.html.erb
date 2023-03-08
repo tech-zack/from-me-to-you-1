@@ -14,7 +14,7 @@
                 <div class="text-center">
                   <p class="text-center"><img src=<%=favorite.post.user.image %> class = "comment_icon" alt="アイコン"><%=favorite.post.user.nickname%></p>
                   <p class="text-center">いいね❤️<%= favorite.post.likes.count%>/お気に入り🎁<%= favorite.post.favorites.count%>/コメント💬<%= favorite.post.comments.count%></p>
-                  <%=link_to '続きを読む', post_path(favorite.post_id), class: "btn btn-outline-success", data: { turbo_frame: 'favorite_card' }%>
+                  <%=link_to '閲覧する', post_path(favorite.post_id), class: "btn btn-outline-success", data: { turbo_frame: 'favorite_card' }%>
                 </div>
               </div>
             </div>

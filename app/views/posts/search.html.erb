@@ -29,7 +29,7 @@
             <div class="text-center">
               <p class="text-center"><img src=<%=result.user.image %> class = "comment_icon" alt="アイコン"><%=result.user.nickname %></p>
               <p class="text-center">いいね♥<%= result.likes.count%></p>
-              <%=link_to '続きを読む', post_path(result.id), class: "btn btn-outline-success", data: { turbo_frame: 'search' }%>
+              <%=link_to '閲覧する', post_path(result.id), class: "btn btn-outline-success", data: { turbo_frame: 'search' }%>
             </div>
           </div>
         </div>
@@ -48,13 +48,7 @@
     </div>
   </div>
 <% end %>
-
 <%= paginate @results %>
-
-  <div class="text-center">
-    <%=link_to '閲覧室へ', posts_path, class: "btn btn-outline-success btn-lg", data: { turbo_frame: 'search' }%>
-  </div>
 </div>
-
 <%= render "layouts/footer" %>
 <% end %>
