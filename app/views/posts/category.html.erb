@@ -19,7 +19,7 @@
   <h2 class="text-center"><%= @category.name %></h2>
     <%= render "layouts/card" %>
     <div class="text-center">
-      <%=link_to '戻る', posts_path, class: "btn btn-outline-success btn-lg", data: { turbo_frame: 'category' }%>
+      <%=link_to '閲覧室へ', posts_path, class: "btn btn-outline-success btn-lg", data: { turbo_frame: 'category' }%>
     </div>
 </div>
 <%= render "layouts/footer" %>
