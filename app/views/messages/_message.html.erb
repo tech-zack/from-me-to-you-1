@@ -1,5 +1,4 @@
 <%= turbo_frame_tag "message_btn" do %>
-
 <div class="chats" style="max-width:800px">
   <% if @messages.present? %>
     <% @messages.each do |message| %>
@@ -39,5 +38,4 @@
     </div>
   <% end %>
 </div>
-
 <% end %>

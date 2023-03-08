@@ -1,12 +1,26 @@
+<%= turbo_frame_tag "category" do %>
 <img src="/ogasuta458A8658.jpg" class="d-block w-100" height=300 alt="閲覧室">
 <div class="category-wrapper">
 
-<%= render "layouts/page_category" %>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">カテゴリー検索結果</li>
+  </ol>
+</nav>
 
-  <h2 class="text-center">
-    <%= @category.name %>
-  </h2>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=link_to '閲覧室', posts_index_path, data: { turbo_frame: 'category' } %></li>
+    <li class="breadcrumb-item active" aria-current="page">カテゴリー検索結果</li>
+  </ol>
+</nav>
+
+  <h2 class="text-center"><%= @category.name %></h2>
     <%= render "layouts/card" %>
-    <%= render "layouts/return_btn" %>
+    <div class="text-center">
+      <%=link_to '戻る', posts_path, class: "btn btn-outline-success btn-lg", data: { turbo_frame: 'category' }%>
+    </div>
 </div>
 <%= render "layouts/footer" %>
+<% end %>

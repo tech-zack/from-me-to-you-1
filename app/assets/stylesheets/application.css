@@ -841,7 +841,7 @@ li {
   padding-bottom: 10px;
  }
 
- /* いいね。お気に入りボタン */
+ /* いいね。ボタン */
  .like-btn {
   border-radius: 10px;
   border: 1px solid #808080;
@@ -850,6 +850,34 @@ li {
   padding: 10px;
  }
  .like-btn:hover {
+  border-radius: 10px;
+  color:#272727;
+  text-decoration: none;
+ }
+
+ /* お気に入り。ボタン */
+ .favorite-btn {
+  border-radius: 10px;
+  border: 1px solid #808080;
+  color:#272727;;
+  text-decoration: none;
+  padding: 10px;
+ }
+ .favorite-btn:hover {
+  border-radius: 10px;
+  color:#272727;
+  text-decoration: none;
+ }
+
+ /* DMボタン */
+ .dm-btn {
+  border-radius: 10px;
+  border: 1px solid #808080;
+  color:#272727;;
+  text-decoration: none;
+  padding: 10px;
+ }
+ .dm-btn:hover {
   border-radius: 10px;
   color:#272727;
   text-decoration: none;

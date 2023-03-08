@@ -1,6 +1,5 @@
-<%= turbo_frame_tag "post_edit" do %>
+<%= turbo_frame_tag "edit" do %>
 <%= form_with(model: @post, local: true) do |f| %>
-
 <div class="text-wrapper">
   <h2 class="text-center">思いを届けよう</h2>
     <div class="card mx-auto" style="max-width: 400px">
@@ -30,12 +29,11 @@
           </div>
         </div>
         <div class="d-grid gap-2 col-6 mx-auto">
-          <%= f.submit "変更する" ,class:"btn btn-outline-success", data: { turbo_frame: 'post_edit' }  %>
-          <%= link_to '戻る', root_path, class:"btn btn-outline-success", data: { turbo_frame: 'post_edit' }  %>
+          <%= f.submit "変更する" ,class:"btn btn-outline-success", data: { turbo_frame: 'edit' } %>
+          <%= link_to '閲覧室へ', posts_path, class:"btn btn-outline-success", data: { turbo_frame: 'edit' } %>
         </div>
       </div>
     </div>
 </div>
-
 <% end %>
 <% end %>

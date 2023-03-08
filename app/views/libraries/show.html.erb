@@ -1,3 +1,4 @@
+<%= turbo_frame_tag "libraries-show" do %>
 <div class="explain-wrapper">
   <h2 class="text-center">思いよ届けとは</h2>
     <p class="text-center">最近世の中では「誹謗中傷」といった以前では聞きなれないような言葉が聞かれるようになりました。<br>言葉とは本来ならば人を傷つけるようなものではなく、人を喜ばし、励ましたりするものです。<br>思いよ届けはそんな人を応援するためのサービスです</p>
@@ -20,5 +21,7 @@
   </ul>
 
   <ul class="text-center">
-    <%= render "layouts/return_btn" %>
+    <li class="text-center"><%=link_to '閲覧室へ', posts_path, class: "btn btn-outline-success btn-lg", data: { turbo_frame: 'libraries-show' }%></li>
   </ul>
+</div>
+<% end %>

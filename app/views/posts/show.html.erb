@@ -1,3 +1,4 @@
+<%= turbo_frame_tag "show" do %>
 <header class="py-2 bg-dark">
   <div class="footer-container">
     <span class="text-muted">カテゴリー<%=@post.category.name%></span>
@@ -15,16 +16,38 @@
       <% if user_signed_in? %>
         <% if current_user.id == @post.user_id %>
           <div class="text-center">
-            <%= render "layouts/post_edit_btn" %>
+            <%= link_to "編集", edit_post_path(@post.id),class:"btn btn-outline-success btn-lg", data: { turbo_frame: 'show' } %>
+            <%= link_to "削除", post_path(@post.id), data: { turbo_method: :delete } ,class:"btn btn-outline-danger btn-lg" %>
           </div>
         <% end %>
       <% end %>
     </div>
   </div>
 
-  <%= render "layouts/page_show" %>
-  <%= render "likes/like" %>
-  <%= render "favorites/favorite" %>
-  <%= render "comments/comment" %>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">投稿</li>
+  </ol>
+</nav>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+  <% if user_signed_in?%>
+    <li class="breadcrumb-item"><%=link_to 'ホーム', root_path, data: { turbo_frame: 'show' } %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=link_to '閲覧室', posts_index_path, data: { turbo_frame: 'show' } %></li>
+    <li class="breadcrumb-item"><%= link_to "#{current_user.nickname}さんのページ",user_path(current_user.id), data: { turbo_frame: 'show' }%></li>
+    <li class="breadcrumb-item active" aria-current="page">投稿</li>
+   <% else %>
+   <li class="breadcrumb-item"><%=link_to 'ホーム', root_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=link_to '閲覧室', posts_index_path, data: { turbo_frame: 'show' } %></li>
+    <li class="breadcrumb-item active" aria-current="page">投稿</li>
+   <% end %>
+  </ol>
+</nav>
+
+<%= render "likes/like" %>
+<%= render "favorites/favorite" %>
+<%= render "comments/comment" %>
 </div>
 <%= render "layouts/footer" %>
+<% end %>

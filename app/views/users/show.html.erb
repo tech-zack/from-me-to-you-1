@@ -16,7 +16,7 @@
         <div class="text-center"><%=@user.profile%></div>
       <% if current_user.id == @user.id %>
         <div class="text-center">
-          <%= link_to "登録情報の更新",edit_user_registration_path, class: "btn   btn-outline-success", data: { turbo_frame: 'user_show' }  %>
+          <%= link_to "登録情報の更新",edit_user_registration_path, class: "btn btn-outline-success", data: { turbo_frame: 'user_show' }  %>
         </div>
       <% end %>
       <%= render "dms/dm" %>
@@ -24,7 +24,19 @@
     </div> 
   </div>
 
-  <%= render "layouts/page_user" %>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page"><%= @user.nickname %>さんのページ</li>
+    </ol>
+  </nav>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%=link_to 'ホーム', data: { turbo_frame: 'user_show' } %></li>
+      <li class="breadcrumb-item"><%=link_to '閲覧室', posts_index_path, data: { turbo_frame: 'user_show' } %></li>
+      <li class="breadcrumb-item active" aria-current="page"><%= @user.nickname %>さんのページ</li>
+    </ol>
+  </nav>
 
   <% if current_user.id == @user.id %>
     <h2 class="text-center">フォロー一覧</h2>
@@ -54,9 +66,7 @@
       </div>
     </div>
   <% end %>
-
   <%= paginate @followings %>
-
   <% end %>
 
   <% if current_user.id == @user.id %>  
@@ -87,23 +97,17 @@
       </div>
     </div>
   <% end %>
-
   <%= paginate @followers %>
-
   <% end %>
 
 <h2 class="text-center"><%= @user.nickname %>さんの投稿</h2>
-
 <%= render "layouts/card" %>
-
 <%= render "layouts/like_card" %>
-
 <%= render "layouts/favorite_card" %>
-
 </div>
+<%= render "layouts/footer" %>
 <% end %>
 
-<%= render "layouts/footer" %>
 
 
 

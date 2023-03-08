@@ -1,11 +1,60 @@
+<%= turbo_frame_tag "search" do %>
 <img src="/ogasuta458A8658.jpg" class="d-block w-100" height=300 alt="閲覧室">
 <div class="search-wrapper">
 
-<%= render "layouts/page_search" %>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">検索結果</li>
+  </ol>
+</nav>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%=link_to 'ホーム', root_path, data: { turbo_frame: 'search' } %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=link_to '閲覧室', posts_index_path, data: { turbo_frame: 'search' } %></li>
+    <li class="breadcrumb-item active" aria-current="page">検索結果</li>
+  </ol>
+</nav>
 
 <h2 class="text-center">検索結果</h2>
-  <%= render "searches/search_card" %>
-  <%= render "layouts/return_btn" %>
+  <div class="container">
+  <div class="row row-cols-1 row-cols-md-3">
+    <% @results.each do |result| %>
+      <div class="col"> 
+        <div class="card"> 
+          <%= image_tag result.image, class: "card-img-top"%>
+          <div class="card-body">
+            <h5 class="text-center"><%=safe_join(result.title.split("\n"),tag(:br))%></h5>
+            <p class="text-center"><%= result.text.truncate(20) %></p>
+            <div class="text-center">
+              <p class="text-center"><img src=<%=result.user.image %> class = "comment_icon" alt="アイコン"><%=result.user.nickname %></p>
+              <p class="text-center">いいね♥<%= result.likes.count%></p>
+              <%=link_to '続きを読む', post_path(result.id), class: "btn btn-outline-success", data: { turbo_frame: 'search' }%>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %> 
+  </div> 
+</div>
+
+<%if @results.length == 0%>
+  <div class="card mx-auto" style="max-width: 600px">
+    <%= link_to '#' do %> 
+      <%= image_tag "/zarei_dougi.png", class: "card-img-top" %>
+    <% end %>
+    <div class="card-body">
+      <p class="text-center">申し訳ございません。入力されたタイトルはございません。</p>
+    </div>
+  </div>
+<% end %>
+
+<%= paginate @results %>
+
+  <div class="text-center">
+    <%=link_to '戻る', posts_path, class: "btn btn-outline-success btn-lg", data: { turbo_frame: 'search' }%>
+  </div>
 </div>
 
 <%= render "layouts/footer" %>
+<% end %>

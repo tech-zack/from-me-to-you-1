@@ -4,7 +4,7 @@
   <div class="dm-wrapper">
    <% if @isRoom == true %>
    <div class="text-center">
-     <%= link_to "ダイレクトメッセージ", room_path(@roomId),class:"like-btn btn-outline-success" %>
+     <%= link_to "ダイレクトメッセージ", room_path(@roomId),class:"dm-btn btn-outline-success" %>
    </div>
    <% else %>
      <%= form_with model: @room, local: true do |f|%>
@@ -12,7 +12,7 @@
          <%= room.hidden_field :user_id, value: @user.id %>
        <% end %>
        <div class="text-center">
-         <%= f.submit "チャットを始める",class:"like-btn btn-outline-success" %>
+         <%= f.submit "チャットを始める",class:"dm-btn btn-outline-success" %>
        </div>
      <% end %>
    <% end %>
