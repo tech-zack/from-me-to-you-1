@@ -93,7 +93,7 @@
     <%= image_tag post.image, class: "card-img-user"%>
       <div class="card-body">
         <h3 class="text-center"><%=safe_join(post.title.split("\n"),tag(:br))%></h3>
-        <h5 class="text-center"><%= post.text.truncate(20) %></h5>
+        <p class="text-center">投稿日<%= post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
         <div class="text-center">
           <p class="text-center"><img src=<%=post.user.image %> class = "comment_icon" alt="アイコン"><%=post.user.nickname %></p>
           <p class="text-center">いいね❤️<%= post.likes.count%>/お気に入り🎁<%= post.favorites.count%>/コメント💬<%= post.comments.count%></p>
