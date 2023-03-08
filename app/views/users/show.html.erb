@@ -11,8 +11,8 @@
         <p class="text-center">メールアドレス</p>
         <div class="text-center"><%=@user.email%></div>
       <% end %>
-        <p class="text-center">フォロー数: <%= @user.followings.count%>/フォロワー数: <%= @user.followers.count %></p>
-        <p class="text-center">プロフィール</p>
+        <p class="text-center">フォロー数:👍 <%= @user.followings.count%>/フォロワー数:🤝 <%= @user.followers.count %></p>
+        <p class="text-center">プロフィール📖</p>
         <div class="text-center"><%=@user.profile%></div>
       <% if current_user.id == @user.id %>
         <div class="text-center">
@@ -39,7 +39,7 @@
   </nav>
 
   <% if current_user.id == @user.id %>
-    <h2 class="text-center">フォロー一覧</h2>
+    <h2 class="text-center">フォロー👍一覧</h2>
       <h5 class="text-center">フォロー数: <%= @user.followings.count %></h5>
       <div class="container">
         <div class="row row-cols-1 row-cols-md-3">
@@ -70,7 +70,7 @@
   <% end %>
 
   <% if current_user.id == @user.id %>  
-    <h2 class="text-center">フォロワー一覧</h2>
+    <h2 class="text-center">フォロワー🤝一覧</h2>
       <h5 class="text-center">フォロワー数: <%= @user.followers.count %></h5>
       <div class="container">
         <div class="row row-cols-1 row-cols-md-3">
