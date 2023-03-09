@@ -1,5 +1,4 @@
 <%= turbo_frame_tag "like_btn" do %>
-
 <div class="like-wrapper">
   <div class="text-center">
     <% if user_signed_in? && current_user != @post.user %>
@@ -15,5 +14,4 @@
     <% end %>
   </div>
 </div>
-
 <% end %>

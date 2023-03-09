@@ -1,5 +1,4 @@
 <%= turbo_frame_tag "like_card" do %>
-
 <% if current_user.id == @user.id %>
   <h2 class="text-center">いいね❤️一覧</h2>
     <div class="container">
@@ -37,5 +36,4 @@
 <%= paginate @likes %>
 
 <% end %>
-
 <% end %>

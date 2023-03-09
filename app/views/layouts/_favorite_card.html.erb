@@ -1,5 +1,4 @@
 <%= turbo_frame_tag "favorite_card" do %>
-
 <% if current_user.id == @user.id %>
   <h2 class="text-center">お気に入り🎁一覧</h2>
     <div class="container">
@@ -37,5 +36,4 @@
 <%= paginate @favorites %>
 
 <% end %>
-
 <% end %>
