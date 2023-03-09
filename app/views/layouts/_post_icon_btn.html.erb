@@ -1,5 +1,3 @@
 <%= turbo_frame_tag "post_icon_btn" do %>
-
-<p class="text-center"><img src=<%=@post.user.image %> class = "comment_icon" alt="アイコン"><%=link_to @post.user.nickname, user_path(@post.user_id),class:"nickname", data: { turbo_frame: 'post_icon_btn' } %></p>
-
+  <p class="text-center"><img src=<%= @post.user.image %> class = "comment_icon" alt="アイコン"><%=link_to @post.user.nickname, user_path(@post.user_id),class:"nickname", data: { turbo_frame: 'post_icon_btn' } %></p>
 <% end %>
