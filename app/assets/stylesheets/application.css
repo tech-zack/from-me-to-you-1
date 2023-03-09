@@ -681,6 +681,36 @@ textarea,
   background-attachment: fixed;
 }
 
+.libraries-image{
+  background-image: url('/ogasuta458A7704.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode:color;
+  background-attachment: fixed; 
+  padding-top: 200px;
+  padding-bottom: 300px;
+}
+
+.category-image{
+  background-image: url('/ogasuta458A8658.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode:color;
+  background-attachment: fixed; 
+  padding-top: 200px;
+  padding-bottom: 300px;
+}
+
+.search-image{
+  background-image: url('/ogasuta458A8658.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode:color;
+  background-attachment: fixed; 
+  padding-top: 200px;
+  padding-bottom: 300px;
+}
+
 /* いいね機能ボタン幅調整 */
 .like-wrapper {
   padding-top: 10px;
