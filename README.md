@@ -191,3 +191,7 @@
 
 - has_many :room_users
 - has_many :messages
+
+<img width="301" alt="02995274849820b05202cd986fbc5221" src="https://user-images.githubusercontent.com/78070415/224298683-242cb719-b3dc-45ad-866b-ae5a55190080.png">
+
+<img width="549" alt="7723228b7b49d97e7b777665ca21eb8c" src="https://user-images.githubusercontent.com/78070415/224299480-1592ea7b-5a20-4c16-97ea-28d4a795042d.png">
