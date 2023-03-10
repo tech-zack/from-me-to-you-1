@@ -26,10 +26,10 @@
           <%= image_tag result.image, class: "card-img-top"%>
           <div class="card-body">
             <h5 class="text-center"><%=safe_join(result.title.split("\n"),tag(:br))%></h5>
-            <p class="text-center"><%= result.text.truncate(20) %></p>
+            <p class="text-center">投稿日<%= result.created_at.strftime("%Y-%m-%d %H:%M") %></p>
             <div class="text-center">
               <p class="text-center"><img src=<%=result.user.image %> class = "comment_icon" alt="アイコン"><%=result.user.nickname %></p>
-              <p class="text-center">いいね♥<%= result.likes.count%></p>
+              <p class="text-center">いいね❤️<%= result.likes.count%>/お気に入り🎁<%= result.favorites.count%>/コメント💬<%= result.comments.count%></p>
               <%=link_to '閲覧する', post_path(result.id), class: "btn btn-outline-success", data: { turbo_frame: 'search' }%>
             </div>
           </div>
