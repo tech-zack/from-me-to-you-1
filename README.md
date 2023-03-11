@@ -22,7 +22,7 @@
 ・Git
 ・Bootstrap5
 ・AWS(VPC EC2 RDS S3 Route53 Internetgateway ELB)予定
-・Docker/Docker-compose予定
+・Docker/Docker-compose
 ・Rspec
 
 ## インフラ構成図
