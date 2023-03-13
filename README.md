@@ -30,9 +30,6 @@
 
 ・Rspec
 
-## インフラ構成図
-<img width="549" alt="7723228b7b49d97e7b777665ca21eb8c" src="https://user-images.githubusercontent.com/78070415/224299480-1592ea7b-5a20-4c16-97ea-28d4a795042d.png">
-
 ## 機能一覧
 - ユーザー登録、ログイン機能(devise)
     - ユーザー編集機能
@@ -60,7 +57,7 @@
 - 検索機能(ransack)
 - カテゴリー検索機能(ransack)
 - ページネーション機能(kaminari)(Hotwire・非同期)
-- 今日の貴方へ機能(投稿機能ランダム)(Hotwire・非同期)
+- 今日のあなたへ機能(投稿機能ランダム)(Hotwire・非同期)
 - パンくずリスト(Hotwire・非同期)
 - マイページ機能
 
@@ -116,6 +113,11 @@
 
 自分にとっての何気ない思いであっても相手の人生を変える力があり、そういった何気ない思いが集まることによってたくさんの人の人生に影響を与えたい。
 
+##　ER図
+<img width="301" alt="02995274849820b05202cd986fbc5221" src="https://user-images.githubusercontent.com/78070415/224298683-242cb719-b3dc-45ad-866b-ae5a55190080.png">
+
+## インフラ構成図
+<img width="549" alt="7723228b7b49d97e7b777665ca21eb8c" src="https://user-images.githubusercontent.com/78070415/224299480-1592ea7b-5a20-4c16-97ea-28d4a795042d.png">
 
 ## users テーブル
 
@@ -142,7 +144,7 @@
 
 | Column      | Type          | Options             |
 | ----------- | ------------- | ------------------- |  
-
+| id          |               |                     |
 ### Association
 
 ## posts テーブル
@@ -242,12 +244,8 @@
 
 | Column      | Type          | Options             |
 | ----------- | ------------- | ------------------- |
-
+| id          |               |                     |
 ### Association
 
 - has_many :room_users
 - has_many :messages
-
-###　ER図
-<img width="301" alt="02995274849820b05202cd986fbc5221" src="https://user-images.githubusercontent.com/78070415/224298683-242cb719-b3dc-45ad-866b-ae5a55190080.png">
-
