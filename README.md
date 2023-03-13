@@ -114,7 +114,7 @@
 自分にとっての何気ない思いであっても相手の人生を変える力があり、そういった何気ない思いが集まることによってたくさんの人の人生に影響を与えたい。
 
 ## インフラ構成図
-<img width="301" alt="02995274849820b05202cd986fbc5221" src="https://user-images.githubusercontent.com/78070415/224298683-242cb719-b3dc-45ad-866b-ae5a55190080.png">
+<img width="758" alt="90c188044f5a5e1b41d35702fdaf5c10" src="https://user-images.githubusercontent.com/78070415/224638860-5742774b-1a9c-49b6-af2a-d5c5fa06c7b0.png">
 
 ## ER図
 <img width="549" alt="7723228b7b49d97e7b777665ca21eb8c" src="https://user-images.githubusercontent.com/78070415/224299480-1592ea7b-5a20-4c16-97ea-28d4a795042d.png">
